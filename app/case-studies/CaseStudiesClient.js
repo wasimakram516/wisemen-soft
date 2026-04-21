@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
           >
             <Box sx={{ width: 28, height: 1, background: '#D4A843' }} />
             <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
-              Work
+              Case Studies
             </Typography>
           </MotionBox>
           <MotionBox initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
