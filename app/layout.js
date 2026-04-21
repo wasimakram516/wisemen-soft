@@ -19,6 +19,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://wisemensoft.com'),
   title: 'Wisemen Soft — Discover. Develop. Deliver.',
   description:
     'Wisemen Soft is a software studio that builds professional, scalable digital products. We analyze, develop, and deliver.',

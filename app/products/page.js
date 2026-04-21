@@ -101,7 +101,7 @@ export default function ProductsPage() {
             transition={{ duration: 0.6 }}
             sx={{ py: { xs: 10, md: 14 }, borderBottom: i < products.length - 1 ? '1px solid rgba(212,168,67,0.08)' : 'none', position: 'relative', overflow: 'hidden' }}
           >
-            {/* Faint background index */}
+            {/* Faint background index — alternates left/right */}
             <Typography
               aria-hidden
               sx={{
@@ -110,7 +110,7 @@ export default function ProductsPage() {
                 right: { xs: -5, md: -10 },
                 fontSize: { xs: '7rem', md: '14rem' },
                 fontWeight: 800,
-                color: { xs: 'rgba(212,168,67,0.25)', md: 'rgba(212,168,67,0.40)' },
+                color: 'rgba(212,168,67,0.32)',
                 lineHeight: 1,
                 userSelect: 'none',
                 fontFamily: 'var(--font-display)',
@@ -156,7 +156,7 @@ export default function ProductsPage() {
                       key={s}
                       label={s}
                       size="small"
-                      sx={{ background: 'rgba(212,168,67,0.06)', color: '#A8A39D', border: '1px solid rgba(212,168,67,0.12)' }}
+                      sx={{ background: 'rgba(212,168,67,0.32)', color: '#A8A39D', border: '1px solid rgba(212,168,67,0.32)' }}
                     />
                   ))}
                 </Box>
@@ -175,7 +175,7 @@ export default function ProductsPage() {
                         alignItems: 'center',
                         gap: 3,
                         py: 2.5,
-                        borderBottom: fi < p.features.length - 1 ? '1px solid rgba(212,168,67,0.06)' : 'none',
+                        borderBottom: fi < p.features.length - 1 ? '1px solid rgba(212,168,67,0.32)' : 'none',
                       }}
                     >
                       <Typography sx={{ color: '#D4A843', fontSize: '0.65rem', fontWeight: 700, minWidth: 18 }}>

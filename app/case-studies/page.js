@@ -109,7 +109,7 @@ export default function CaseStudiesPage() {
                 right: { xs: -5, md: -10 },
                 fontSize: { xs: '7rem', md: '14rem' },
                 fontWeight: 800,
-                color: { xs: 'rgba(212,168,67,0.25)', md: 'rgba(212,168,67,0.40)' },
+                color: 'rgba(212,168,67,0.32)',
                 lineHeight: 1,
                 userSelect: 'none',
                 fontFamily: 'var(--font-display)',
@@ -125,7 +125,7 @@ export default function CaseStudiesPage() {
                 <Typography variant="caption" sx={{ color: '#6B6560' }}>·</Typography>
                 <Typography variant="caption" sx={{ color: '#6B6560' }}>{c.client}</Typography>
                 {c.tags.map((t) => (
-                  <Chip key={t} label={t} size="small" sx={{ background: 'rgba(212,168,67,0.06)', color: '#A8A39D', border: '1px solid rgba(212,168,67,0.12)' }} />
+                  <Chip key={t} label={t} size="small" sx={{ background: 'rgba(212,168,67,0.32)', color: '#A8A39D', border: '1px solid rgba(212,168,67,0.32)' }} />
                 ))}
               </Box>
               <Typography variant="h3" sx={{ fontSize: { xs: '1.6rem', md: '2.2rem' }, color: '#F0EDE6', lineHeight: 1.25, maxWidth: 720 }}>
@@ -160,7 +160,7 @@ export default function CaseStudiesPage() {
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                   {c.stack.map((s) => (
-                    <Chip key={s} label={s} size="small" sx={{ background: 'rgba(212,168,67,0.06)', color: '#D4A843', border: '1px solid rgba(212,168,67,0.15)' }} />
+                    <Chip key={s} label={s} size="small" sx={{ background: 'rgba(212,168,67,0.32)', color: '#D4A843', border: '1px solid rgba(212,168,67,0.15)' }} />
                   ))}
                 </Box>
               </Grid>

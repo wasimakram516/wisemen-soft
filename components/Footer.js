@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Logo from '@/components/Logo';
 
 const navLinks = [
-  { label: 'Work', href: '/case-studies' },
+  { label: 'Case Studies', href: '/case-studies' },
   { label: 'Products', href: '/products' },
   { label: 'About', href: '/about' },
 ];
