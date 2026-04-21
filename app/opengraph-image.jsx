@@ -20,25 +20,11 @@ export default async function Image() {
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 40,
         }}
       >
-        {/* Logo mark from public folder */}
-        <img src={logoBase64} width={180} height={180} style={{ objectFit: 'contain' }} />
-
-        {/* Wordmark */}
-        <div style={{ display: 'flex', alignItems: 'center', fontSize: 72, fontWeight: 700, fontFamily: 'sans-serif', letterSpacing: '-0.03em' }}>
-          <span style={{ color: '#F0EDE6' }}>Wisemen</span>
-          <span style={{ color: '#D4A843' }}>Soft</span>
-        </div>
-
-        {/* Tagline */}
-        <div style={{ fontSize: 28, color: '#6B6560', fontFamily: 'sans-serif', letterSpacing: '0.12em' }}>
-          DISCOVER · DEVELOP · DELIVER
-        </div>
+        <img src={logoBase64} width={300} height={300} style={{ objectFit: 'contain' }} />
       </div>
     ),
     { ...size }
