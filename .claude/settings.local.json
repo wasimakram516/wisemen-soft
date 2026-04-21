@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/Projects/Software Projects/Media War/MediaWarPOS/**)",
+      "Read(//d/Projects/Upwork/Aleksandar - Employee Supervision App/**)",
+      "WebFetch(domain:www.wasimakram.org)",
+      "Bash(npx create-next-app@latest . --js --app --no-tailwind --no-eslint --no-src-dir --import-alias \"@/*\")"
+    ]
+  }
+}
