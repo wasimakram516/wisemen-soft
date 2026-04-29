@@ -1,14 +1,18 @@
 import ProductsClient from './ProductsClient';
+import { createPageMetadata } from '../seo';
 
-export const metadata = {
-  title: 'Products — Wisemen Soft',
-  description: 'Nexus School ERP, PressMaster print management, and StaffSync HR supervision. Software built for specific problems, not generic use cases.',
-  openGraph: {
-    title: 'Products — Wisemen Soft',
-    description: 'School ERP, print management, and HR software built to fit real workflows.',
-    url: 'https://wisemensoft.com/products',
-  },
-};
+export const metadata = createPageMetadata({
+  title: 'Software Products - School ERP, HR, and Print Management',
+  description:
+    'Wisemen Soft builds Nexus School ERP, PressMaster print management, and StaffSync HR software for teams that need practical, workflow-specific systems.',
+  path: '/products',
+  keywords: [
+    'school ERP software',
+    'HR management software',
+    'print management software',
+    'business software products',
+  ],
+});
 
 export default function ProductsPage() {
   return <ProductsClient />;
