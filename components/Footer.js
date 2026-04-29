@@ -1,9 +1,7 @@
 'use client';
 
-import { Box, Container, Typography, IconButton, Divider, Grid } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Box, Button, Container, Divider, Grid, Typography } from '@mui/material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 
@@ -11,12 +9,7 @@ const navLinks = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Products', href: '/products' },
   { label: 'About', href: '/about' },
-];
-
-const socials = [
-  { icon: <FacebookIcon fontSize="small" />, href: '#', label: 'Facebook' },
-  { icon: <InstagramIcon fontSize="small" />, href: '#', label: 'Instagram' },
-  { icon: <LinkedInIcon fontSize="small" />, href: '#', label: 'LinkedIn' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Footer() {
@@ -31,41 +24,25 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 4, md: 8 }} sx={{ mb: 12 }}>
+        <Grid container spacing={{ xs: 5, md: 8 }} sx={{ mb: { xs: 8, md: 12 } }}>
           <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ mb: 3 }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ cursor: 'pointer' }}>
+            <Box sx={{ mb: 3 }}>
               <Logo size={26} />
             </Box>
-            <Typography
-              variant="body2"
-              sx={{ color: '#C8C3BC', maxWidth: 300, lineHeight: 1.9, mb: 4 }}
-            >
-              We build software that understands your business.
-              Based in Pakistan. Working globally.
+            <Typography variant="body2" sx={{ color: '#C8C3BC', maxWidth: 360, lineHeight: 1.9, mb: 4 }}>
+              Premium business systems for teams that need software shaped around real operations. Based in Pakistan,
+              working globally.
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              {socials.map((s) => (
-                <IconButton
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  size="small"
-                  sx={{
-                    color: '#A8A39D',
-                    border: '1px solid rgba(212,168,67,0.12)',
-                    borderRadius: 1.5,
-                    '&:hover': {
-                      color: '#D4A843',
-                      borderColor: 'rgba(212,168,67,0.4)',
-                      background: 'rgba(212,168,67,0.05)',
-                    },
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  {s.icon}
-                </IconButton>
-              ))}
-            </Box>
+            <Button
+              href="https://www.wasimakram.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="small"
+              variant="outlined"
+              endIcon={<OpenInNewIcon fontSize="small" />}
+            >
+              Founder Portfolio
+            </Button>
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }}>
@@ -80,7 +57,11 @@ export default function Footer() {
                 <Link key={link.href} href={link.href}>
                   <Typography
                     variant="body2"
-                    sx={{ color: '#C8C3BC', '&:hover': { color: '#F0EDE6' }, transition: 'color 0.2s' }}
+                    sx={{
+                      color: '#C8C3BC',
+                      transition: 'color 0.2s, transform 0.2s',
+                      '&:hover': { color: '#F0EDE6', transform: 'translateX(4px)' },
+                    }}
                   >
                     {link.label}
                   </Typography>
@@ -113,7 +94,7 @@ export default function Footer() {
               wasimakram4245@gmail.com
             </Typography>
             <Typography variant="body2" sx={{ color: '#9A938C' }}>
-              Pakistan · GCC Region
+              Pakistan - GCC - Europe - Global
             </Typography>
           </Grid>
         </Grid>
@@ -122,7 +103,7 @@ export default function Footer() {
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
           <Typography variant="caption" sx={{ color: '#9A938C' }}>
-            © {new Date().getFullYear()} Wisemen Soft. All rights reserved.
+            (c) {new Date().getFullYear()} Wisemen Soft. All rights reserved.
           </Typography>
           <Typography variant="caption" sx={{ color: '#9A938C', fontStyle: 'italic' }}>
             Discover. Develop. Deliver.

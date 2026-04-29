@@ -10,7 +10,7 @@ const steps = [
   {
     number: '01',
     title: 'Discover',
-    body: 'We sit with your team, study your domain, and map out what actually needs to be built — not what sounds good in a meeting.',
+    body: 'We sit with your team, study your domain, and map out what actually needs to be built, not what sounds good in a meeting.',
   },
   {
     number: '02',
@@ -58,7 +58,7 @@ export default function Process() {
                 No surprises.
               </Typography>
               <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.9, maxWidth: 280 }}>
-                We've learned that good software isn't about the tools — it's about how well you understand the problem before you touch the keyboard.
+                We have learned that good software is not about the tools. It is about how well you understand the problem before you touch the keyboard.
               </Typography>
             </MotionBox>
           </Grid>
@@ -78,6 +78,11 @@ export default function Process() {
                     py: 6,
                     borderBottom: i < 2 ? '1px solid rgba(212,168,67,0.08)' : 'none',
                     alignItems: 'flex-start',
+                    transition: 'transform 0.24s ease, border-color 0.24s ease',
+                    '&:hover': {
+                      transform: 'translateX(6px)',
+                      borderBottomColor: 'rgba(212,168,67,0.2)',
+                    },
                   }}
                 >
                   <Typography

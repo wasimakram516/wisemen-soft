@@ -58,19 +58,26 @@ export default function Navbar() {
               <MenuIcon />
             </IconButton>
           ) : (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
-                  <Button
+                  <Box
+                    component="span"
                     sx={{
-                      color: pathname === link.href ? '#D4A843' : '#A8A39D',
-                      fontWeight: pathname === link.href ? 600 : 400,
+                      display: 'inline-block',
+                      px: 2,
+                      py: 1,
                       fontSize: '0.875rem',
-                      '&:hover': { color: '#F0EDE6', background: 'transparent' },
+                      fontWeight: pathname === link.href ? 600 : 400,
+                      color: pathname === link.href ? '#D4A843' : '#A8A39D',
+                      cursor: 'pointer',
+                      borderRadius: 1,
+                      transition: 'color 0.2s',
+                      '&:hover': { color: '#F0EDE6' },
                     }}
                   >
                     {link.label}
-                  </Button>
+                  </Box>
                 </Link>
               ))}
               <Link href="/contact">
@@ -129,7 +136,7 @@ export default function Navbar() {
                 <ListItemText
                   disableTypography
                   primary={
-                    <Typography sx={{ fontWeight: 600, fontSize: '1.3rem', letterSpacing: '-0.01em' }}>
+                    <Typography sx={{ fontWeight: 600, fontSize: '1.3rem', letterSpacing: 0 }}>
                       {link.label}
                     </Typography>
                   }

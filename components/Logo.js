@@ -4,11 +4,11 @@ import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 
 /**
- * Wisemen Soft logo mark — Ascending Constellation W.
+ * Wisemen Soft logo mark - Ascending Constellation W.
  * Amber path representing a guiding constellation, with white stars.
  */
 function LogoMark({ size = 44 }) {
-  // We use width=size and maintain the 44:32 aspect ratio
+  // Width controls the mark while preserving the 44:32 aspect ratio.
   return (
     <svg
       width={size}
@@ -18,16 +18,14 @@ function LogoMark({ size = 44 }) {
       xmlns="http://www.w3.org/2000/svg"
       style={{ display: 'block', flexShrink: 0 }}
     >
-      {/* Main W path (Bolder, Amber) */}
-      <path 
-        d="M 6 18 L 14 26 L 22 14 L 30 26 L 38 6" 
-        stroke="#D4A843" 
-        strokeWidth="2.5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
+      <path
+        d="M 6 18 L 14 26 L 22 14 L 30 26 L 38 6"
+        stroke="#D4A843"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
 
-      {/* Stars */}
       <circle cx="6" cy="18" r="2.5" fill="#F0EDE6" />
       <circle cx="14" cy="26" r="3" fill="#F0EDE6" />
       <circle cx="22" cy="14" r="4" fill="#F0EDE6" />
@@ -48,7 +46,7 @@ export default function Logo({ size = 28, showWordmark = true, href = '/' }) {
             fontFamily: 'var(--font-display)',
             fontWeight: 700,
             fontSize: size * 0.6,
-            letterSpacing: '-0.03em',
+            letterSpacing: 0,
             color: '#F0EDE6',
             lineHeight: 1,
             userSelect: 'none',

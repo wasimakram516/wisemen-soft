@@ -16,7 +16,7 @@ const inter = Inter({
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 const organizationSchema = {

@@ -1,12 +1,24 @@
 'use client';
 
-import { Box, Container, Typography, Button } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
+
+const headlineSx = {
+  fontSize: {
+    xs: '2.55rem',
+    sm: '3.75rem',
+    md: '5.35rem',
+    lg: '6rem',
+    xl: '6.35rem',
+  },
+  lineHeight: 0.98,
+  mb: 0,
+};
 
 export default function Hero() {
   return (
@@ -15,41 +27,52 @@ export default function Hero() {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end',
-        pb: { xs: 10, md: 14 },
-        pt: 18,
+        justifyContent: 'center',
+        pb: { xs: 7, md: 8 },
+        pt: { xs: 13, md: 12 },
         background: '#0A0A0A',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Ambient glow — subtle, top right */}
-      <Box
+      <Container
+        maxWidth={false}
         sx={{
-          position: 'absolute',
-          top: -100,
-          right: -100,
-          width: 600,
-          height: 600,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(212,168,67,0.05) 0%, transparent 65%)',
-          pointerEvents: 'none',
+          position: 'relative',
+          px: { xs: 3, sm: 5, md: 7 },
         }}
-      />
+      >
+        <MotionBox
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 5, flexWrap: 'wrap' }}
+        >
+          <Box sx={{ width: 28, height: 1, background: '#5CB1AA' }} />
+          <Typography
+            variant="caption"
+            sx={{
+              color: '#5CB1AA',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+            }}
+          >
+            Discover. Develop. Deliver.
+          </Typography>
+        </MotionBox>
 
-      <Container maxWidth="lg">
-        {/* Main headline */}
-        <Box sx={{ mb: 8 }}>
+        <Box sx={{ mb: { xs: 5, md: 7 }, maxWidth: { xs: '100%', md: 1600 } }}>
           <MotionTypography
             variant="h1"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             sx={{
-              fontSize: { xs: '2.6rem', sm: '3.8rem', md: '5rem', lg: '6rem' },
+              ...headlineSx,
               color: '#F0EDE6',
-              lineHeight: 0.95,
-              mb: 0,
+              fontWeight: 300,
             }}
           >
             Most agencies
@@ -60,10 +83,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             sx={{
-              fontSize: { xs: '2.6rem', sm: '3.8rem', md: '5rem', lg: '6rem' },
+              ...headlineSx,
               color: '#D4A843',
-              lineHeight: 0.95,
-              mb: 0,
+              fontWeight: 800,
             }}
           >
             execute.
@@ -74,36 +96,19 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             sx={{
-              fontSize: { xs: '2.6rem', sm: '3.8rem', md: '5rem', lg: '6rem' },
+              ...headlineSx,
               color: '#F0EDE6',
-              lineHeight: 0.95,
+              fontWeight: 800,
+              whiteSpace: { xs: 'normal', lg: 'nowrap' },
             }}
           >
-            We understand.
+            <Box component="span" sx={{ fontWeight: 300 }}>
+              Wisemen
+            </Box>{' '}
+            understands first.
           </MotionTypography>
         </Box>
 
-        {/* Tagline */}
-        <MotionBox
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 6 }}
-        >
-          {['Discover', 'Develop', 'Deliver'].map((word, i) => (
-            <Box key={word} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Typography
-                variant="caption"
-                sx={{ color: i === 1 ? '#D4A843' : '#6B6560', letterSpacing: '0.12em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 600 }}
-              >
-                {word}
-              </Typography>
-              {i < 2 && <Box sx={{ width: 4, height: 4, borderRadius: '50%', background: '#3A3530' }} />}
-            </Box>
-          ))}
-        </MotionBox>
-
-        {/* Bottom row: description + CTA */}
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,14 +125,12 @@ export default function Hero() {
             variant="body1"
             sx={{
               color: '#A8A39D',
-              maxWidth: 420,
+              maxWidth: 440,
               lineHeight: 1.8,
               fontSize: '1.05rem',
             }}
           >
-            Before we write a line of code, we learn your domain.
-            Your users, your workflows, your constraints.
-            Then we build software that actually fits.
+            We study your users, workflows, and constraints before writing code.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
             <Link href="/case-studies">

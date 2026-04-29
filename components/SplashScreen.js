@@ -74,7 +74,7 @@ export default function SplashScreen() {
                   fontFamily: 'var(--font-display)',
                   fontWeight: 700,
                   fontSize: { xs: '2rem', md: '2.8rem' },
-                  letterSpacing: '-0.03em',
+                  letterSpacing: 0,
                   color: '#F0EDE6',
                   userSelect: 'none',
                 }}

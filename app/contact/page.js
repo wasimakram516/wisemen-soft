@@ -2,11 +2,11 @@ import ContactClient from './ContactClient';
 import { createPageMetadata } from '../seo';
 
 export const metadata = createPageMetadata({
-  title: 'Contact Wisemen Soft - Start a Software Project',
+  title: 'Contact Wisemen Soft - Build Custom Business Software',
   description:
-    'Contact Wisemen Soft to discuss a custom software, ERP, HR, web app, or workflow automation project. Based in Pakistan and working with global teams.',
+    'Contact Wisemen Soft to discuss a custom software, ERP, HR, web app, dashboard, or workflow automation project. Based in Pakistan and working globally.',
   path: '/contact',
-  keywords: ['hire software house Pakistan', 'custom software consultation', 'start software project'],
+  keywords: ['hire software house Pakistan', 'custom software consultation', 'business software project'],
 });
 
 export default function ContactPage() {

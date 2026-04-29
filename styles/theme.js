@@ -22,10 +22,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'var(--font-inter), "Helvetica Neue", Arial, sans-serif',
-    h1: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.0 },
-    h2: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.1 },
-    h3: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 },
-    h4: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 600, letterSpacing: '-0.01em' },
+    h1: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 800, letterSpacing: 0, lineHeight: 1.0 },
+    h2: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 700, letterSpacing: 0, lineHeight: 1.1 },
+    h3: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 700, letterSpacing: 0, lineHeight: 1.15 },
+    h4: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 600, letterSpacing: 0 },
     h5: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 600 },
     h6: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 500 },
     body1: { lineHeight: 1.8 },
@@ -41,11 +41,20 @@ const theme = createTheme({
           letterSpacing: '0.01em',
           borderRadius: 6,
           padding: '11px 28px',
+          transition: 'transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease',
+          '&:hover': { transform: 'translateY(-2px)' },
+          '&:active': { transform: 'translateY(0)' },
+          '& .MuiButton-endIcon': {
+            transition: 'transform 0.22s ease',
+          },
+          '&:hover .MuiButton-endIcon': {
+            transform: 'translateX(4px)',
+          },
         },
         containedPrimary: {
           background: '#D4A843',
           color: '#0A0A0A',
-          '&:hover': { background: '#E8C47A' },
+          '&:hover': { background: '#E8C47A', boxShadow: '0 12px 30px rgba(212,168,67,0.16)' },
         },
         outlinedPrimary: {
           borderColor: 'rgba(212,168,67,0.35)',

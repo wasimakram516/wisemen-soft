@@ -24,19 +24,6 @@ export default function CTA() {
         overflow: 'hidden',
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: -200,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: 800,
-          height: 400,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(212,168,67,0.04) 0%, transparent 65%)',
-          pointerEvents: 'none',
-        }}
-      />
       <Container maxWidth="md">
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
@@ -56,7 +43,7 @@ export default function CTA() {
               color: '#F0EDE6',
               lineHeight: 1.05,
               mb: 4,
-              letterSpacing: '-0.025em',
+              letterSpacing: 0,
             }}
           >
             Tell us what you&apos;re{' '}

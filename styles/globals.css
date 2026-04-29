@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
   font-family: var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+main {
   overflow-x: hidden;
 }
 
@@ -53,7 +58,8 @@ body::before {
   top: 0;
   left: 0;
   height: 2px;
-  background: #D4A843;
+  background: linear-gradient(90deg, #5CB1AA, #D4A843, #C16E5A);
+  box-shadow: 0 0 16px rgba(212,168,67,0.24);
   z-index: 10000;
   transition: width 0.1s linear;
   pointer-events: none;
@@ -64,8 +70,25 @@ body::before {
   display: flex;
   width: max-content;
   animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }

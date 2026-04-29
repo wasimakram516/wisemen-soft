@@ -10,7 +10,7 @@ const stats = [
   { numeric: 60, suffix: '+', label: 'Projects shipped', sub: 'across 4 countries' },
   { numeric: 4, suffix: '+', label: 'Years in practice', sub: 'no VC money, no fluff' },
   { numeric: 3, suffix: '', label: 'Products launched', sub: 'ERP, HR & Print' },
-  { numeric: 100, suffix: '%', label: 'Satisfaction rate', sub: "we don't take bad fits" },
+  { numeric: 100, suffix: '%', label: 'Fit-focused work', sub: 'clear scope before build' },
 ];
 
 function AnimatedNumber({ target, suffix, inView }) {
@@ -32,7 +32,7 @@ function AnimatedNumber({ target, suffix, inView }) {
         fontWeight: 800,
         color: '#D4A843',
         lineHeight: 1,
-        letterSpacing: '-0.03em',
+        letterSpacing: 0,
         display: 'block',
         mb: 1,
         fontFamily: 'var(--font-display)',

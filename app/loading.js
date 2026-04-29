@@ -66,7 +66,7 @@ export default function Loading() {
               fontFamily: 'var(--font-display)', 
               fontWeight: 700, 
               fontSize: { xs: '2.5rem', md: '3.5rem' }, 
-              letterSpacing: '-0.03em', 
+              letterSpacing: 0, 
               color: '#F0EDE6',
               userSelect: 'none'
             }}
