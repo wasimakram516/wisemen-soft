@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WisemenSoft — wisemensoft.com
 
-## Getting Started
+Official website for **Wisemen Soft**, a software studio based in Pakistan. We build custom ERP, HR, print management, and business software for teams that need software shaped around how their operations actually work.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What the site covers
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Home** — Studio positioning, proof strip, services overview, how we work, featured products, and CTA
+- **Case Studies** — Detailed write-ups of Nexus, PressMaster, and StaffSync: the problem, the approach, and what changed
+- **Products** — Feature-level breakdown of each product and the stack it runs on
+- **About** — Studio story, founder background, and working principles
+- **Contact** — Project inquiry form
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Products
 
-## Learn More
+**Nexus** — School ERP handling attendance, fees, exams, payroll, and reporting. Web version in development at nexus.wisemensoft.com.
 
-To learn more about Next.js, take a look at the following resources:
+**PressMaster** — Print management system for order tracking, inventory, invoicing, and production workflow. Live on desktop.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**StaffSync** — Employee supervision and HR tool covering check-in, leave, tasks, internal messaging, and surveys. Live on desktop, built for a European client.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
