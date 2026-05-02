@@ -71,15 +71,16 @@ export default function CaseStudiesPage() {
     <Box sx={{ background: '#0A0A0A', minHeight: '100vh' }}>
       <Box sx={{ pt: { xs: 18, md: 22 }, pb: { xs: 10, md: 14 }, borderBottom: '1px solid rgba(212,168,67,0.08)' }}>
         <Container maxWidth="lg">
-          <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 5 }}>
-            <Box sx={{ width: 28, height: 1, background: '#C16E5A' }} />
-            <Typography variant="caption" sx={{ color: '#C16E5A', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
+          <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} sx={{ mb: 5 }}>
+            
+            <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
               Case Studies
             </Typography>
           </MotionBox>
           <MotionBox initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
             <Typography variant="h1" sx={{ fontSize: { xs: '2.35rem', md: '3.5rem' }, color: '#F0EDE6', mb: 4, lineHeight: 1.02, maxWidth: 760 }}>
-              Workflows understood. Systems shipped.
+              <Box component="span" sx={{ fontWeight: 100 }}>Workflows understood. </Box>
+              <Box component="span" sx={{ fontWeight: 800 }}>Systems shipped.</Box>
             </Typography>
             <Typography variant="body1" sx={{ color: '#A8A39D', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 560 }}>
               Each project started with operational discovery. The outcome was software shaped around the people using
@@ -149,7 +150,7 @@ export default function CaseStudiesPage() {
                   />
                 ))}
               </Box>
-              <Typography variant="h3" sx={{ fontSize: { xs: '1.6rem', md: '2.25rem' }, color: '#F0EDE6', lineHeight: 1.25, maxWidth: 760 }}>
+              <Typography variant="h3" sx={{ fontSize: { xs: '1.6rem', md: '2.25rem' }, color: '#F0EDE6', lineHeight: 1.25, maxWidth: 760, fontWeight: 100 }}>
                 {caseItem.title}
               </Typography>
             </Box>
@@ -196,7 +197,7 @@ export default function CaseStudiesPage() {
                       size="small"
                       sx={{
                         background: 'rgba(92,177,170,0.06)',
-                        color: '#5CB1AA',
+                        color: '#D4A843',
                         border: '1px solid rgba(92,177,170,0.16)',
                         transition: 'transform 0.2s ease, border-color 0.2s ease',
                         '&:hover': { transform: 'translateY(-2px)', borderColor: 'rgba(92,177,170,0.34)' },

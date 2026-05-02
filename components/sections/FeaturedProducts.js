@@ -54,13 +54,15 @@ export default function FeaturedProducts() {
         >
           <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-              <Box sx={{ width: 28, height: 1, background: '#D4A843' }} />
+              
               <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
                 Selected Work
               </Typography>
             </Box>
             <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '3.2rem' }, color: '#F0EDE6' }}>
-              Products we&apos;ve built<br />and shipped.
+              <Box component="span" sx={{ fontWeight: 100 }}>Products we&apos;ve built</Box>
+              <br />
+              <Box component="span" sx={{ fontWeight: 800 }}>and shipped.</Box>
             </Typography>
           </Box>
           <Link href="/products">

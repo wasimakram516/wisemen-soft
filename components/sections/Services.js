@@ -41,7 +41,7 @@ export default function Services() {
           <Grid size={{ xs: 12, md: 4 }}>
             <Reveal sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-                <Box sx={{ width: 28, height: 1, background: '#D4A843' }} />
+                
                 <Typography
                   variant="caption"
                   sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}

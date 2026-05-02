@@ -5,8 +5,8 @@ import { Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 const proofPoints = [
   { value: '60+', label: 'production projects shipped' },
-  { value: '4+', label: 'years building real systems' },
-  { value: '3', label: 'business products launched' },
+  { value: '7+', label: 'years building real systems' },
+  { value: '3+', label: 'business products launched' },
   { value: 'Global', label: 'Pakistan, GCC, Europe' },
 ];
 
@@ -32,7 +32,7 @@ export default function ProofStrip() {
               key={point.label}
               sx={{
                 py: { xs: 3.5, md: 4.5 },
-                pr: { xs: 2, md: 4 },
+                px: { xs: 2, md: 4 },
                 borderRight: {
                   xs: index % 2 === 0 ? '1px solid rgba(212,168,67,0.08)' : 'none',
                   md: index < proofPoints.length - 1 ? '1px solid rgba(212,168,67,0.08)' : 'none',
@@ -51,7 +51,7 @@ export default function ProofStrip() {
               <Typography
                 component="p"
                 sx={{
-                  color: index === 3 ? '#5CB1AA' : '#D4A843',
+                  color: '#D4A843',
                   fontFamily: 'var(--font-display)',
                   fontSize: { xs: '1.45rem', md: '1.8rem' },
                   fontWeight: 800,

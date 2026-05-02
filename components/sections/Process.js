@@ -7,21 +7,9 @@ import { useRef } from 'react';
 const MotionBox = motion.create(Box);
 
 const steps = [
-  {
-    number: '01',
-    title: 'Discover',
-    body: 'We sit with your team, study your domain, and map out what actually needs to be built, not what sounds good in a meeting.',
-  },
-  {
-    number: '02',
-    title: 'Develop',
-    body: 'Clean architecture. Tight feedback loops. No black boxes. You see progress every week, not just at the end.',
-  },
-  {
-    number: '03',
-    title: 'Deliver',
-    body: 'Production-ready. Documented. Handed over in a way that your team can own and maintain without us.',
-  },
+  { number: '01', title: 'Discover', body: 'We sit with your team, study your domain, and map out what actually needs to be built, not what sounds good in a meeting.' },
+  { number: '02', title: 'Develop', body: 'Clean architecture. Tight feedback loops. No black boxes. You see progress every week, not just at the end.' },
+  { number: '03', title: 'Deliver', body: 'Production-ready. Documented. Handed over in a way that your team can own and maintain without us.' },
 ];
 
 export default function Process() {
@@ -41,25 +29,36 @@ export default function Process() {
               sx={{ position: { md: 'sticky' }, top: { md: 120 } }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-                <Box sx={{ width: 28, height: 1, background: '#D4A843' }} />
-                <Typography
-                  variant="caption"
-                  sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}
-                >
+                
+                <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
                   How we work
                 </Typography>
               </Box>
-              <Typography
-                variant="h2"
-                sx={{ fontSize: { xs: '2.2rem', md: '3rem' }, color: '#F0EDE6', mb: 3 }}
-              >
-                Three phases.
+              <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '3rem' }, color: '#F0EDE6', mb: 3 }}>
+                <Box component="span" sx={{ fontWeight: 100 }}>Three phases.</Box>
                 <br />
-                No surprises.
+                <Box component="span" sx={{ fontWeight: 800 }}>No surprises.</Box>
               </Typography>
               <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.9, maxWidth: 280 }}>
                 We have learned that good software is not about the tools. It is about how well you understand the problem before you touch the keyboard.
               </Typography>
+
+              {/* Mini process diagram */}
+              <Box sx={{ mt: 5, display: { xs: 'none', md: 'block' } }}>
+                <svg width="120" height="160" viewBox="0 0 120 160" fill="none">
+                  {/* Vertical connecting line */}
+                  <line x1="20" y1="16" x2="20" y2="144" stroke="rgba(212,168,67,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  {/* Nodes */}
+                  {[16, 80, 144].map((y, i) => (
+                    <g key={i}>
+                      <circle cx="20" cy={y} r="7" fill="rgba(212,168,67,0.08)" stroke="rgba(212,168,67,0.4)" strokeWidth="1.5" />
+                      <circle cx="20" cy={y} r="3" fill="#D4A843" />
+                      <line x1="34" y1={y} x2="110" y2={y} stroke="rgba(212,168,67,0.12)" strokeWidth="1" />
+                      <rect x="34" y={y - 5} width={[50, 65, 45][i]} height="10" rx="2" fill="rgba(212,168,67,0.06)" />
+                    </g>
+                  ))}
+                </svg>
+              </Box>
             </MotionBox>
           </Grid>
 
@@ -79,29 +78,14 @@ export default function Process() {
                     borderBottom: i < 2 ? '1px solid rgba(212,168,67,0.08)' : 'none',
                     alignItems: 'flex-start',
                     transition: 'transform 0.24s ease, border-color 0.24s ease',
-                    '&:hover': {
-                      transform: 'translateX(6px)',
-                      borderBottomColor: 'rgba(212,168,67,0.2)',
-                    },
+                    '&:hover': { transform: 'translateX(6px)', borderBottomColor: 'rgba(212,168,67,0.2)' },
                   }}
                 >
-                  <Typography
-                    sx={{
-                      fontSize: '0.75rem',
-                      fontWeight: 700,
-                      color: '#D4A843',
-                      letterSpacing: '0.1em',
-                      mt: 0.5,
-                      minWidth: 24,
-                    }}
-                  >
+                  <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: '#D4A843', letterSpacing: '0.1em', mt: 0.5, minWidth: 24 }}>
                     {step.number}
                   </Typography>
                   <Box>
-                    <Typography
-                      variant="h4"
-                      sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, mb: 2, color: '#F0EDE6' }}
-                    >
+                    <Typography variant="h4" sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, mb: 2, color: '#F0EDE6', fontWeight: 800 }}>
                       {step.title}
                     </Typography>
                     <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, maxWidth: 480 }}>

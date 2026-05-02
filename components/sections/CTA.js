@@ -38,18 +38,11 @@ export default function CTA() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{
-              fontSize: { xs: '2.4rem', md: '4rem', lg: '5.2rem' },
-              color: '#F0EDE6',
-              lineHeight: 1.05,
-              mb: 4,
-              letterSpacing: 0,
-            }}
+            sx={{ fontSize: { xs: '2.4rem', md: '4rem', lg: '5.2rem' }, color: '#F0EDE6', lineHeight: 1.05, mb: 4, letterSpacing: 0 }}
           >
-            Tell us what you&apos;re{' '}
-            <Box component="span" sx={{ color: '#D4A843' }}>
-              trying to solve.
-            </Box>
+            <Box component="span" sx={{ fontWeight: 100 }}>Tell us what you&apos;re </Box>
+            <Box component="span" sx={{ fontWeight: 800 }}>trying to </Box>
+            <Box component="span" sx={{ fontWeight: 800, color: '#D4A843' }}>solve.</Box>
           </Typography>
           <Typography
             variant="body1"

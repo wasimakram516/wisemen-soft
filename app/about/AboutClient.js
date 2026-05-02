@@ -41,10 +41,10 @@ export default function AboutClient() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 6, flexWrap: 'wrap' }}
+            sx={{ mb: 6 }}
           >
-            <Box sx={{ width: 28, height: 1, background: '#5CB1AA' }} />
-            <Typography variant="caption" sx={{ color: '#5CB1AA', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
+            
+            <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
               About Wisemen Soft
             </Typography>
           </MotionBox>
@@ -56,7 +56,8 @@ export default function AboutClient() {
             sx={{ maxWidth: 820 }}
           >
             <Typography variant="h1" sx={{ fontSize: { xs: '2.35rem', md: '3.5rem', lg: '4.2rem' }, color: '#F0EDE6', lineHeight: 1.02, mb: 5 }}>
-              A software house built around operational understanding.
+              <Box component="span" sx={{ fontWeight: 100 }}>A software house built around </Box>
+              <Box component="span" sx={{ fontWeight: 800 }}>operational understanding.</Box>
             </Typography>
             <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, fontSize: '1.05rem', maxWidth: 640 }}>
               Wisemen Soft exists for businesses that need custom software to match the way work actually happens:
@@ -115,15 +116,17 @@ export default function AboutClient() {
 
             <Grid size={{ xs: 12, md: 8 }}>
               <MotionBox initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 5 }}>
-                  <Box sx={{ width: 28, height: 1, background: '#D4A843' }} />
+                <Box sx={{ mb: 5 }}>
+                  
                   <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
                     Founder Led
                   </Typography>
                 </Box>
 
                 <Typography variant="h3" sx={{ fontSize: { xs: '1.8rem', md: '2.45rem' }, color: '#F0EDE6', mb: 5, lineHeight: 1.15 }}>
-                  Led by a builder with 60+ production projects across Pakistan, the GCC region, and Europe.
+                  <Box component="span" sx={{ fontWeight: 100 }}>Led by a builder with </Box>
+                  <Box component="span" sx={{ fontWeight: 800 }}>60+ production projects</Box>
+                  <Box component="span" sx={{ fontWeight: 100 }}> across Pakistan, the GCC region, and Europe.</Box>
                 </Typography>
 
                 <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, mb: 4 }}>
@@ -158,8 +161,8 @@ export default function AboutClient() {
         <Container maxWidth="lg">
           <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} sx={{ mb: 10 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
-              <Box sx={{ width: 28, height: 1, background: '#C16E5A' }} />
-              <Typography variant="caption" sx={{ color: '#C16E5A', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
+              
+              <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
                 How We Operate
               </Typography>
             </Box>

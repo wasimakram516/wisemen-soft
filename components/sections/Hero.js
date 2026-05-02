@@ -9,16 +9,11 @@ const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 
 const headlineSx = {
-  fontSize: {
-    xs: '2.55rem',
-    sm: '3.75rem',
-    md: '5.35rem',
-    lg: '6rem',
-    xl: '6.35rem',
-  },
+  fontSize: { xs: '2.55rem', sm: '3.75rem', md: '5.35rem', lg: '6rem', xl: '6.35rem' },
   lineHeight: 0.98,
   mb: 0,
 };
+
 
 export default function Hero() {
   return (
@@ -35,77 +30,53 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      <Container
-        maxWidth={false}
-        sx={{
-          position: 'relative',
-          px: { xs: 3, sm: 5, md: 7 },
-        }}
-      >
+      <Container maxWidth="lg" sx={{ position: 'relative' }}>
         <MotionBox
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 5, flexWrap: 'wrap' }}
+          sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 5, flexWrap: 'wrap' }}
         >
-          <Box sx={{ width: 28, height: 1, background: '#5CB1AA' }} />
-          <Typography
-            variant="caption"
-            sx={{
-              color: '#5CB1AA',
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              fontSize: '0.72rem',
-              fontWeight: 700,
-            }}
-          >
-            Discover. Develop. Deliver.
-          </Typography>
+          {['Discover', 'Develop', 'Deliver'].map((word, i) => (
+            <Box key={word} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Typography variant="caption" sx={{ color: i === 1 ? '#D4A843' : '#6B6560', letterSpacing: '0.16em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: i === 1 ? 700 : 500 }}>
+                {word}
+              </Typography>
+              {i < 2 && <Box sx={{ width: 3, height: 3, borderRadius: '50%', background: '#3A3530' }} />}
+            </Box>
+          ))}
         </MotionBox>
 
-        <Box sx={{ mb: { xs: 5, md: 7 }, maxWidth: { xs: '100%', md: 1600 } }}>
+        <Box sx={{ mb: { xs: 5, md: 7 }, textAlign: 'center' }}>
+          {/* Thin */}
           <MotionTypography
             variant="h1"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            sx={{
-              ...headlineSx,
-              color: '#F0EDE6',
-              fontWeight: 300,
-            }}
+            sx={{ ...headlineSx, fontWeight: 100, color: '#F0EDE6' }}
           >
-            Most agencies
+            We understand
           </MotionTypography>
+          {/* Bold + amber */}
           <MotionTypography
             variant="h1"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            sx={{
-              ...headlineSx,
-              color: '#D4A843',
-              fontWeight: 800,
-            }}
+            sx={{ ...headlineSx, fontWeight: 800, color: '#D4A843' }}
           >
-            execute.
+            your business
           </MotionTypography>
+          {/* Thin */}
           <MotionTypography
             variant="h1"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            sx={{
-              ...headlineSx,
-              color: '#F0EDE6',
-              fontWeight: 800,
-              whiteSpace: { xs: 'normal', lg: 'nowrap' },
-            }}
+            sx={{ ...headlineSx, fontWeight: 100, color: '#F0EDE6' }}
           >
-            <Box component="span" sx={{ fontWeight: 300 }}>
-              Wisemen
-            </Box>{' '}
-            understands first.
+            before we build.
           </MotionTypography>
         </Box>
 
@@ -113,30 +84,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            flexWrap: 'wrap',
-            gap: 4,
-          }}
+          sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 4 }}
         >
-          <Typography
-            variant="body1"
-            sx={{
-              color: '#A8A39D',
-              maxWidth: 440,
-              lineHeight: 1.8,
-              fontSize: '1.05rem',
-            }}
-          >
-            We study your users, workflows, and constraints before writing code.
+          <Typography variant="body1" sx={{ color: '#A8A39D', maxWidth: 480, lineHeight: 1.8, fontSize: '1.05rem' }}>
+            Before we write a line of code, we learn how your business actually runs: your workflows, your edge cases, your people. The result is software that fits instead of forces.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link href="/case-studies">
-              <Button variant="contained" endIcon={<ArrowForwardIcon />} size="large">
-                See Our Work
-              </Button>
+              <Button variant="contained" endIcon={<ArrowForwardIcon />} size="large">See Our Work</Button>
             </Link>
             <Link href="/contact">
               <Button variant="text" size="large" sx={{ color: '#A8A39D', '&:hover': { color: '#F0EDE6' } }}>

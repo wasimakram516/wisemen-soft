@@ -72,15 +72,16 @@ export default function ContactPage() {
     <Box sx={{ background: '#0A0A0A', minHeight: '100vh' }}>
       <Box sx={{ pt: { xs: 18, md: 22 }, pb: { xs: 10, md: 14 }, borderBottom: '1px solid rgba(92,177,170,0.14)' }}>
         <Container maxWidth="lg">
-          <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 5 }}>
-            <Box sx={{ width: 28, height: 1, background: '#5CB1AA' }} />
-            <Typography variant="caption" sx={{ color: '#5CB1AA', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
+          <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} sx={{ mb: 5 }}>
+            
+            <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
               Start a Project
             </Typography>
           </MotionBox>
           <MotionBox initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
             <Typography variant="h1" sx={{ fontSize: { xs: '2.35rem', md: '3.5rem' }, color: '#F0EDE6', mb: 4, lineHeight: 1.02, maxWidth: 760 }}>
-              Tell us what your business needs software to handle.
+              <Box component="span" sx={{ fontWeight: 100 }}>Tell us what your business </Box>
+              <Box component="span" sx={{ fontWeight: 800 }}>needs software to handle.</Box>
             </Typography>
             <Typography variant="body1" sx={{ color: '#A8A39D', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 580 }}>
               Share the workflow, bottleneck, product idea, or system you want to improve. We will ask the right
