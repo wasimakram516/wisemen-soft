@@ -112,9 +112,9 @@ export default function CaseStudiesPage() {
               aria-hidden
               sx={{
                 position: 'absolute',
-                top: { xs: -8, md: 8 },
+                top: { xs: 0, md: 8 },
                 right: { xs: -2, md: 0 },
-                fontSize: { xs: '6.5rem', md: '12rem' },
+                fontSize: { xs: '5rem', md: '12rem' },
                 fontWeight: 800,
                 color: 'rgba(193,110,90,0.08)',
                 lineHeight: 1,
