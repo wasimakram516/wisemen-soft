@@ -24,7 +24,7 @@ const organizationSchema = {
   '@type': ['Organization', 'ProfessionalService'],
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/logo-mark.png`,
+  logo: `${SITE_URL}/logos/logo-mark.png`,
   email: 'wasimakram4245@gmail.com',
   founder: {
     '@type': 'Person',

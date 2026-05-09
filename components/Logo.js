@@ -8,29 +8,28 @@ import Link from 'next/link';
  * Amber path representing a guiding constellation, with white stars.
  */
 function LogoMark({ size = 44 }) {
-  // Width controls the mark while preserving the 44:32 aspect ratio.
   return (
     <svg
       width={size}
-      height={size * (32 / 44)}
-      viewBox="0 0 44 32"
+      height={size}
+      viewBox="0 0 44 44"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{ display: 'block', flexShrink: 0 }}
     >
       <path
-        d="M 6 18 L 14 26 L 22 14 L 30 26 L 38 6"
+        d="M 6 24 L 14 32 L 22 20 L 30 32 L 38 12"
         stroke="#D4A843"
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
 
-      <circle cx="6" cy="18" r="2.5" fill="#F0EDE6" />
-      <circle cx="14" cy="26" r="3" fill="#F0EDE6" />
-      <circle cx="22" cy="14" r="4" fill="#F0EDE6" />
-      <circle cx="30" cy="26" r="3" fill="#F0EDE6" />
-      <circle cx="38" cy="6" r="3.5" fill="#F0EDE6" />
+      <circle cx="6" cy="24" r="2.5" fill="#F0EDE6" />
+      <circle cx="14" cy="32" r="3" fill="#F0EDE6" />
+      <circle cx="22" cy="20" r="4" fill="#F0EDE6" />
+      <circle cx="30" cy="32" r="3" fill="#F0EDE6" />
+      <circle cx="38" cy="12" r="3.5" fill="#F0EDE6" />
     </svg>
   );
 }

@@ -84,7 +84,7 @@ export default function AboutClient() {
                   }}
                 >
                   <Image
-                    src="/wasim-akram.jpg"
+                    src="/images/wasim-akram.jpg"
                     alt="Wasim Akram, Founder and CEO of Wisemen Soft"
                     fill
                     sizes="(max-width: 900px) 100vw, 50vw"

@@ -1,4 +1,4 @@
-<svg width="220" height="44" viewBox="0 0 220 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="240" viewBox="0 0 220 44" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;display=swap');
     .text {
@@ -9,7 +9,10 @@
     }
   </style>
 
-  <!-- Logo Mark (scaled and centered vertically) -->
+  <!-- Dark background with rounded pill corners -->
+  <rect width="220" height="44" rx="22" fill="#1C1C2E" />
+
+  <!-- Logo Mark -->
   <g transform="translate(0, 6)">
     <path d="M 6 18 L 14 26 L 22 14 L 30 26 L 38 6" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     <circle cx="6" cy="18" r="2.5" fill="#F0EDE6" />

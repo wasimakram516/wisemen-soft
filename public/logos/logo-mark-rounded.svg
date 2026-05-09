@@ -1,5 +1,5 @@
-﻿<svg width="256" height="256" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark background -->
+<svg width="512" height="512" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background with rounded corners -->
   <rect width="44" height="44" rx="9" fill="#1C1C2E" />
 
   <!-- W path (Amber) -->
