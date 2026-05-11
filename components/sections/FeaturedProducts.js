@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { products as productData } from '@/app/products/data';
 
 const MotionBox = motion.create(Box);
 
@@ -12,11 +13,12 @@ const work = [
   {
     index: '01',
     name: 'Nexus',
-    type: 'School ERP',
-    outcome: 'Replaced spreadsheets and manual registers across an entire school: attendance, fees, exams, and payroll in one system.',
+    type: 'Education ERP',
+    outcome: 'The all-in-one ERP for schools, colleges, and universities — academics, attendance, finance, examinations, and multi-campus in one platform.',
     tags: ['ERP', 'Education', 'Web'],
-    status: 'In Development',
-    statusColor: '#D4A843',
+    status: 'Live',
+    statusColor: '#6DB87E',
+    href: 'https://nexus.wisemensoft.com',
   },
   {
     index: '02',
@@ -81,7 +83,7 @@ export default function FeaturedProducts() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Link href="/case-studies">
+              <Link href={`/products/${productData.find(p => p.name === item.name)?.slug ?? ''}`}>
                 <Box
                   sx={{
                     display: 'flex',

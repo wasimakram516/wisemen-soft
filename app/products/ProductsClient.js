@@ -1,70 +1,11 @@
 'use client';
 
+import Link from 'next/link';
 import { Box, Chip, Container, Grid, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
+import { products } from './data';
 
 const MotionBox = motion.create(Box);
-
-const products = [
-  {
-    index: '01',
-    name: 'Nexus',
-    type: 'School ERP',
-    status: 'Live',
-    statusColor: '#6DB87E',
-    summary:
-      'A school runs on coordination. Nexus replaces disconnected spreadsheets and registers with one system for academics, attendance, fees, staff payroll, examinations, and reporting.',
-    features: [
-      'Student, teacher and guardian management',
-      'Daily attendance with auto-absent marking',
-      'Fee collection, discounts, and fines',
-      'Exam scheduling, results, and GPA',
-      'Staff salaries, deductions, and payroll',
-      'Multi-campus with role-based access',
-    ],
-    note: 'nexus.wisemensoft.com',
-    noteHref: 'https://nexus.wisemensoft.com',
-    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'Vercel'],
-  },
-  {
-    index: '02',
-    name: 'PressMaster',
-    type: 'Print Management System',
-    status: 'Live - Desktop',
-    statusColor: '#6DB87E',
-    summary:
-      'Running a printing press means juggling orders, materials, clients, invoices, and production status. PressMaster gives the team one workflow from intake to delivery.',
-    features: [
-      'Order tracking and management',
-      'Inventory management',
-      'Customer accounts',
-      'Invoice and billing generation',
-      'Production workflow status',
-      'Business reports',
-    ],
-    note: null,
-    stack: ['C#', 'WinForms', 'SQL Server', 'Crystal Reports'],
-  },
-  {
-    index: '03',
-    name: 'StaffSync',
-    type: 'Employee Supervision',
-    status: 'Live - Desktop',
-    statusColor: '#6DB87E',
-    summary:
-      'StaffSync gives companies structured HR without enterprise bloat: attendance, leave, tasks, messaging, documents, and internal feedback in one practical system.',
-    features: [
-      'Digital check-in and check-out',
-      'Attendance analytics and policies',
-      'Leave request and approval flow',
-      'Task management',
-      'Internal messaging and notifications',
-      'Document sharing and surveys',
-    ],
-    note: null,
-    stack: ['C#', 'WinForms', 'MySQL', '.NET'],
-  },
-];
 
 export default function ProductsPage() {
   return (
@@ -72,7 +13,6 @@ export default function ProductsPage() {
       <Box sx={{ pt: { xs: 18, md: 22 }, pb: { xs: 10, md: 14 }, borderBottom: '1px solid rgba(92,177,170,0.14)' }}>
         <Container maxWidth="lg">
           <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} sx={{ mb: 5 }}>
-            
             <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
               Products
             </Typography>
@@ -83,8 +23,7 @@ export default function ProductsPage() {
               <Box component="span" sx={{ fontWeight: 800 }}>built around specific workflows.</Box>
             </Typography>
             <Typography variant="body1" sx={{ color: '#A8A39D', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 560 }}>
-              These products come from real operational problems we have studied and shipped against: school
-              administration, print production, and employee supervision.
+              These products come from real operational problems we have studied and shipped against: school administration, print production, and employee supervision.
             </Typography>
           </MotionBox>
         </Container>
@@ -101,48 +40,20 @@ export default function ProductsPage() {
             sx={{
               py: { xs: 10, md: 14 },
               borderBottom: index < products.length - 1 ? '1px solid rgba(212,168,67,0.08)' : 'none',
-              position: 'relative',
-              overflow: 'hidden',
+              position: 'relative', overflow: 'hidden',
               transition: 'border-color 0.28s ease',
-              '&:hover': {
-                borderBottomColor: 'rgba(212,168,67,0.2)',
-              },
+              '&:hover': { borderBottomColor: 'rgba(212,168,67,0.2)' },
             }}
           >
-            <Typography
-              aria-hidden
-              sx={{
-                position: 'absolute',
-                top: { xs: -8, md: 8 },
-                right: { xs: -2, md: 0 },
-                fontSize: { xs: '6.5rem', md: '12rem' },
-                fontWeight: 800,
-                color: 'rgba(212,168,67,0.07)',
-                lineHeight: 1,
-                userSelect: 'none',
-                fontFamily: 'var(--font-display)',
-                pointerEvents: 'none',
-              }}
-            >
+            <Typography aria-hidden sx={{ position: 'absolute', top: { xs: -8, md: 8 }, right: { xs: -2, md: 0 }, fontSize: { xs: '6.5rem', md: '12rem' }, fontWeight: 800, color: 'rgba(212,168,67,0.07)', lineHeight: 1, userSelect: 'none', fontFamily: 'var(--font-display)', pointerEvents: 'none' }}>
               {product.index}
             </Typography>
 
             <Grid container spacing={{ xs: 6, md: 12 }}>
               <Grid size={{ xs: 12, md: 5 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, flexWrap: 'wrap' }}>
-                  <Typography sx={{ color: '#6B6560', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em' }}>
-                    {product.index}
-                  </Typography>
-                  <Chip
-                    label={product.status}
-                    size="small"
-                    sx={{
-                      background: `${product.statusColor}12`,
-                      color: product.statusColor,
-                      border: `1px solid ${product.statusColor}28`,
-                      fontWeight: 600,
-                    }}
-                  />
+                  <Typography sx={{ color: '#6B6560', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em' }}>{product.index}</Typography>
+                  <Chip label={product.status} size="small" sx={{ background: `${product.statusColor}12`, color: product.statusColor, border: `1px solid ${product.statusColor}28`, fontWeight: 600 }} />
                 </Box>
                 <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '3rem' }, color: '#F0EDE6', mb: 1, lineHeight: 1.05, fontWeight: 800 }}>
                   {product.name}
@@ -162,22 +73,16 @@ export default function ProductsPage() {
                     ) : product.note}
                   </Typography>
                 )}
-                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 3 }}>
                   {product.stack.map((stackItem) => (
-                    <Chip
-                      key={stackItem}
-                      label={stackItem}
-                      size="small"
-                      sx={{
-                        background: 'rgba(212,168,67,0.06)',
-                        color: '#C8C3BC',
-                        border: '1px solid rgba(212,168,67,0.14)',
-                        transition: 'transform 0.2s ease, border-color 0.2s ease',
-                        '&:hover': { transform: 'translateY(-2px)', borderColor: 'rgba(212,168,67,0.34)' },
-                      }}
-                    />
+                    <Chip key={stackItem} label={stackItem} size="small" sx={{ background: 'rgba(212,168,67,0.06)', color: '#C8C3BC', border: '1px solid rgba(212,168,67,0.14)', transition: 'transform 0.2s ease', '&:hover': { transform: 'translateY(-2px)' } }} />
                   ))}
                 </Box>
+                <Link href={`/products/${product.slug}`} style={{ textDecoration: 'none' }}>
+                  <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, borderBottom: '1px solid rgba(212,168,67,0.4)', pb: 0.25 }}>
+                    Full details →
+                  </Typography>
+                </Link>
               </Grid>
 
               <Grid size={{ xs: 12, md: 7 }}>
@@ -189,24 +94,16 @@ export default function ProductsPage() {
                     <Box
                       key={feature}
                       sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 3,
-                        py: 2.5,
+                        display: 'flex', alignItems: 'center', gap: 3, py: 2.5,
                         borderBottom: featureIndex < product.features.length - 1 ? '1px solid rgba(212,168,67,0.08)' : 'none',
                         transition: 'transform 0.2s ease, border-color 0.2s ease',
-                        '&:hover': {
-                          transform: 'translateX(4px)',
-                          borderBottomColor: 'rgba(212,168,67,0.2)',
-                        },
+                        '&:hover': { transform: 'translateX(4px)', borderBottomColor: 'rgba(212,168,67,0.2)' },
                       }}
                     >
                       <Typography sx={{ color: '#D4A843', fontSize: '0.65rem', fontWeight: 700, minWidth: 18 }}>
                         {String(featureIndex + 1).padStart(2, '0')}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: '#A8A39D' }}>
-                        {feature}
-                      </Typography>
+                      <Typography variant="body2" sx={{ color: '#A8A39D' }}>{feature}</Typography>
                     </Box>
                   ))}
                 </Box>
