@@ -11,19 +11,20 @@ const cases = [
     product: 'Nexus',
     client: 'Private School, Pakistan',
     title: "Replacing a school's paper-based operations with software that fits daily admin work.",
-    tags: ['ERP', 'Education', 'Desktop to Web'],
+    tags: ['ERP', 'Education', 'Web Platform'],
+    link: 'https://nexus.wisemensoft.com',
     problem:
       'The school was running on spreadsheets, physical registers, and manual processes for attendance, fees, exams, and payroll. Reports took hours because the work was scattered.',
     approach:
-      'We studied the admin staff, teachers, and management workflows before designing the system. The result was built around the school process instead of a generic template.',
+      'We studied admin staff, teacher, and management workflows before designing the system. The result was built around the school process instead of a generic template — rebuilt in 2026 as a full web platform with multi-campus, real-time, and role-based access.',
     outcomes: [
-      'Attendance moved digital for teachers and admin staff',
-      'Monthly fee generation became a minutes-long workflow',
-      'Exam marks and report cards were tracked end to end',
-      'Salary processing moved into one centralized system',
-      'Management gained a single operational dashboard',
+      'Attendance moved fully digital with auto-absent marking',
+      'Monthly fee vouchers generated automatically per student',
+      'Exam results, GPA, and report cards tracked end to end',
+      'Salary deductions calculated automatically from attendance',
+      'Multi-campus management from one admin dashboard',
     ],
-    stack: ['C#', 'WinForms', 'SQL Server', 'Crystal Reports'],
+    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'AWS'],
   },
   {
     index: '02',
@@ -205,6 +206,15 @@ export default function CaseStudiesPage() {
                     />
                   ))}
                 </Box>
+                {caseItem.link && (
+                  <Box sx={{ mt: 3 }}>
+                    <a href={caseItem.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                      <Typography variant="caption" sx={{ color: '#6DB87E', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, borderBottom: '1px solid rgba(109,184,126,0.4)', pb: 0.25, '&:hover': { borderBottomColor: '#6DB87E' } }}>
+                        Visit {caseItem.link.replace('https://', '')} →
+                      </Typography>
+                    </a>
+                  </Box>
+                )}
               </Grid>
             </Grid>
           </MotionBox>

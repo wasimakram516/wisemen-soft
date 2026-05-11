@@ -10,20 +10,21 @@ const products = [
     index: '01',
     name: 'Nexus',
     type: 'School ERP',
-    status: 'Web version in development',
-    statusColor: '#D4A843',
+    status: 'Live',
+    statusColor: '#6DB87E',
     summary:
-      'A school runs on coordination. Nexus replaces disconnected spreadsheets and registers with one system for academics, fees, staff, payroll, and reporting.',
+      'A school runs on coordination. Nexus replaces disconnected spreadsheets and registers with one system for academics, attendance, fees, staff payroll, examinations, and reporting.',
     features: [
-      'Student and teacher management',
-      'Daily attendance tracking',
-      'Fee collection and billing',
-      'Exam scheduling and results',
-      'Staff salaries and payroll',
-      'Reporting and analytics',
+      'Student, teacher and guardian management',
+      'Daily attendance with auto-absent marking',
+      'Fee collection, discounts, and fines',
+      'Exam scheduling, results, and GPA',
+      'Staff salaries, deductions, and payroll',
+      'Multi-campus with role-based access',
     ],
-    note: 'Launching as nexus.wisemensoft.com',
-    stack: ['Next.js', 'Node.js', 'MongoDB', 'AWS'],
+    note: 'nexus.wisemensoft.com',
+    noteHref: 'https://nexus.wisemensoft.com',
+    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'Vercel'],
   },
   {
     index: '02',
@@ -154,7 +155,11 @@ export default function ProductsPage() {
                 </Typography>
                 {product.note && (
                   <Typography variant="caption" sx={{ color: '#D4A843', borderLeft: '2px solid rgba(92,177,170,0.5)', pl: 2, display: 'block', mb: 4 }}>
-                    {product.note}
+                    {product.noteHref ? (
+                      <a href={product.noteHref} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>
+                        {product.note}
+                      </a>
+                    ) : product.note}
                   </Typography>
                 )}
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
