@@ -1,69 +1,54 @@
 'use client';
 
 import { Box, Container, Typography, Button } from '@mui/material';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import Link from 'next/link';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-const MotionBox = motion.create(Box);
+import { ArrowRight as ArrowForwardIcon } from '@phosphor-icons/react';
+import ThemeSection from '@/components/ThemeSection';
+import { useScrollReveal, Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 export default function CTA() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
+  const { ref } = useScrollReveal({ margin: '-60px' });
 
   return (
-    <Box
-      ref={ref}
-      sx={{
-        py: { xs: 16, md: 24 },
-        background: '#0A0A0A',
-        borderTop: '1px solid rgba(212,168,67,0.08)',
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+    <ThemeSection
+      mode="light"
+      sx={{ py: { xs: 16, md: 24 }, textAlign: 'center', position: 'relative', overflow: 'hidden' }}
     >
+      <Box ref={ref}>
       <Container maxWidth="md">
-        <MotionBox
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <Typography
-            variant="caption"
-            sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', display: 'block', mb: 4 }}
-          >
-            Ready to Build?
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{ fontSize: { xs: '2.4rem', md: '4rem', lg: '5.2rem' }, color: '#F0EDE6', lineHeight: 1.05, mb: 4, letterSpacing: 0 }}
-          >
-            <Box component="span" sx={{ fontWeight: 100 }}>Tell us what you&apos;re </Box>
-            <Box component="span" sx={{ fontWeight: 800 }}>trying to </Box>
-            <Box component="span" sx={{ fontWeight: 800, color: '#D4A843' }}>solve.</Box>
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ color: '#A8A39D', mb: 6, maxWidth: 440, mx: 'auto', lineHeight: 1.9 }}
-          >
-            We&apos;ll ask the right questions, tell you honestly if we&apos;re the right fit, and give you a clear picture of what building with us looks like.
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <Stagger stagger={0.12}>
+          <StaggerItem>
+            <Typography variant="h1" color="text.primary" sx={{ lineHeight: 1.05, mb: 4 }}>
+              <Box component="span" sx={{ fontWeight: 500 }}>Tell us what you&apos;re </Box>
+              <Box component="span" sx={{ fontWeight: 800 }}>trying to </Box>
+              <Box component="span" sx={{ fontWeight: 800, color: 'primary.main' }}>solve.</Box>
+            </Typography>
+          </StaggerItem>
+          <StaggerItem>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 6, maxWidth: 440, mx: 'auto' }}>
+              We&apos;ll ask the right questions, tell you honestly if we&apos;re the right fit, and give you a clear picture of what building with us looks like.
+            </Typography>
+          </StaggerItem>
+          <StaggerItem sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact">
-              <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} sx={{ px: 5 }}>
-                Start a Conversation
+              <Button variant="contained" size="large" endIcon={<ArrowForwardIcon size="1em" weight="bold" />} sx={{ px: 5 }}>
+                Start a Project
               </Button>
             </Link>
             <Link href="/case-studies">
-              <Button variant="outlined" size="large" sx={{ px: 5 }}>
+              <Button
+                variant="outlined"
+                size="large"
+                color="inherit"
+                sx={{ px: 5, borderColor: 'divider', color: 'text.primary', '&:hover': { borderColor: 'text.primary' } }}
+              >
                 See Our Work First
               </Button>
             </Link>
-          </Box>
-        </MotionBox>
+          </StaggerItem>
+        </Stagger>
       </Container>
-    </Box>
+      </Box>
+    </ThemeSection>
   );
 }
