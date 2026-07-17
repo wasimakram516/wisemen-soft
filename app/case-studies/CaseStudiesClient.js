@@ -1,121 +1,89 @@
 'use client';
 
 import Link from 'next/link';
-import { Box, Chip, Container, Grid, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Container, Typography } from '@mui/material';
 import { cases } from './data';
-
-const MotionBox = motion.create(Box);
+import { TagList } from '@/components/Meta';
+import PageBanner from '@/components/PageBanner';
+import ThemeSection from '@/components/ThemeSection';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 export default function CaseStudiesPage() {
   return (
-    <Box sx={{ background: '#0A0A0A', minHeight: '100vh' }}>
-      <Box sx={{ pt: { xs: 18, md: 22 }, pb: { xs: 10, md: 14 }, borderBottom: '1px solid rgba(212,168,67,0.08)' }}>
-        <Container maxWidth="lg">
-          <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} sx={{ mb: 5 }}>
-            <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
-              Case Studies
-            </Typography>
-          </MotionBox>
-          <MotionBox initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
-            <Typography variant="h1" sx={{ fontSize: { xs: '2.35rem', md: '3.5rem' }, color: '#F0EDE6', mb: 4, lineHeight: 1.02, maxWidth: 760 }}>
-              <Box component="span" sx={{ fontWeight: 100 }}>Workflows understood. </Box>
-              <Box component="span" sx={{ fontWeight: 800 }}>Systems shipped.</Box>
-            </Typography>
-            <Typography variant="body1" sx={{ color: '#A8A39D', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 560 }}>
-              Each project started with operational discovery. The outcome was software shaped around the people using it every day.
-            </Typography>
-          </MotionBox>
-        </Container>
-      </Box>
+    <ThemeSection mode="light" as="div" sx={{ minHeight: '100vh' }}>
+      <PageBanner
+        eyebrow="Case Studies"
+        titleTop="Workflows understood."
+        titleBottom="Systems shipped."
+        description="Each project started with operational discovery — the outcome was software shaped around the people using it every day."
+        maxWidth={640}
+      />
 
       <Container maxWidth="lg">
         {cases.map((caseItem, index) => (
-          <MotionBox
+          <Box
             key={caseItem.product}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             sx={{
-              py: { xs: 10, md: 14 },
-              borderBottom: index < cases.length - 1 ? '1px solid rgba(212,168,67,0.08)' : 'none',
+              py: { xs: 7, md: 9 },
+              borderBottom: index < cases.length - 1 ? 1 : 0,
+              borderColor: 'divider',
               position: 'relative',
               overflow: 'hidden',
               transition: 'border-color 0.28s ease',
-              '&:hover': { borderBottomColor: 'rgba(193,110,90,0.22)' },
+              '&:hover': { borderColor: 'primary.main' },
             }}
           >
             <Typography
               aria-hidden
+              color="primary.main"
               sx={{
-                position: 'absolute', top: { xs: 0, md: 8 }, right: { xs: -2, md: 0 },
-                fontSize: { xs: '5rem', md: '12rem' }, fontWeight: 800,
-                color: 'rgba(193,110,90,0.08)', lineHeight: 1, userSelect: 'none',
+                position: 'absolute', top: { xs: 0, md: 4 }, right: { xs: -2, md: 0 },
+                fontSize: { xs: '4rem', md: '8rem' }, fontWeight: 800,
+                opacity: 0.07, lineHeight: 1, userSelect: 'none',
                 fontFamily: 'var(--font-display)', pointerEvents: 'none',
               }}
             >
               {caseItem.index}
             </Typography>
 
-            <Box sx={{ mb: 8, position: 'relative' }}>
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: 3, flexWrap: 'wrap' }}>
-                <Typography sx={{ color: '#6B6560', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em' }}>{caseItem.index}</Typography>
-                <Typography variant="caption" sx={{ color: '#D4A843' }}>{caseItem.product}</Typography>
-                <Typography variant="caption" sx={{ color: '#6B6560' }}>-</Typography>
-                <Typography variant="caption" sx={{ color: '#6B6560' }}>{caseItem.client}</Typography>
-                {caseItem.tags.map((tag) => (
-                  <Chip key={tag} label={tag} size="small" sx={{ background: 'rgba(212,168,67,0.06)', color: '#C8C3BC', border: '1px solid rgba(212,168,67,0.14)', transition: 'transform 0.2s ease, border-color 0.2s ease', '&:hover': { transform: 'translateY(-2px)', borderColor: 'rgba(212,168,67,0.34)' } }} />
-                ))}
-              </Box>
-              <Typography variant="h3" sx={{ fontSize: { xs: '1.6rem', md: '2.25rem' }, color: '#F0EDE6', lineHeight: 1.25, maxWidth: 760, fontWeight: 100 }}>
-                {caseItem.title}
-              </Typography>
-            </Box>
+            <Stagger delay={index * 0.06} stagger={0.08} sx={{ position: 'relative', maxWidth: 760 }}>
+              <StaggerItem sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: 2.5, flexWrap: 'wrap' }}>
+                <Typography variant="caption" color="primary.main">{caseItem.product}</Typography>
+                <Typography variant="caption" color="text.disabled">·</Typography>
+                <Typography variant="caption" color="text.disabled">{caseItem.client}</Typography>
+                <TagList items={caseItem.tags} />
+              </StaggerItem>
 
-            <Grid container spacing={{ xs: 6, md: 8 }} sx={{ position: 'relative' }}>
-              <Grid size={{ xs: 12, md: 4 }}>
-                <Typography variant="caption" sx={{ color: '#6B6560', letterSpacing: '0.12em', textTransform: 'uppercase', mb: 3, display: 'block' }}>The Problem</Typography>
-                <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.9 }}>{caseItem.problem}</Typography>
-              </Grid>
-              <Grid size={{ xs: 12, md: 4 }}>
-                <Typography variant="caption" sx={{ color: '#6B6560', letterSpacing: '0.12em', textTransform: 'uppercase', mb: 3, display: 'block' }}>Our Approach</Typography>
-                <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.9 }}>{caseItem.approach}</Typography>
-              </Grid>
-              <Grid size={{ xs: 12, md: 4 }}>
-                <Typography variant="caption" sx={{ color: '#6B6560', letterSpacing: '0.12em', textTransform: 'uppercase', mb: 3, display: 'block' }}>What Changed</Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
-                  {caseItem.outcomes.map((outcome) => (
-                    <Box key={outcome} sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', transition: 'transform 0.2s ease', '&:hover': { transform: 'translateX(4px)' } }}>
-                      <Box sx={{ width: 5, height: 5, borderRadius: '50%', background: '#D4A843', mt: 0.8, flexShrink: 0 }} />
-                      <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.7 }}>{outcome}</Typography>
-                    </Box>
-                  ))}
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 3 }}>
-                  {caseItem.stack.map((s) => (
-                    <Chip key={s} label={s} size="small" sx={{ background: 'rgba(92,177,170,0.06)', color: '#D4A843', border: '1px solid rgba(92,177,170,0.16)', transition: 'transform 0.2s ease, border-color 0.2s ease', '&:hover': { transform: 'translateY(-2px)', borderColor: 'rgba(92,177,170,0.34)' } }} />
-                  ))}
-                </Box>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-                  <Link href={`/case-studies/${caseItem.slug}`} style={{ textDecoration: 'none' }}>
-                    <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, borderBottom: '1px solid rgba(212,168,67,0.4)', pb: 0.25 }}>
-                      Full case study →
+              <StaggerItem>
+                <Typography variant="h3" color="text.primary" sx={{ fontWeight: 500, mb: 2.5 }}>
+                  {caseItem.title}
+                </Typography>
+              </StaggerItem>
+
+              <StaggerItem>
+                <Typography variant="body1" color="text.secondary" sx={{ mb: 3, maxWidth: 620 }}>
+                  {caseItem.intro}
+                </Typography>
+              </StaggerItem>
+
+              <StaggerItem sx={{ display: 'flex', gap: 3, alignItems: 'center', flexWrap: 'wrap' }}>
+                <Link href={`/case-studies/${caseItem.slug}`} style={{ textDecoration: 'none' }}>
+                  <Typography variant="caption" color="primary.main" sx={{ letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, borderBottom: 1, borderColor: 'primary.main', pb: 0.25 }}>
+                    Full case study →
+                  </Typography>
+                </Link>
+                {caseItem.link && (
+                  <a href={caseItem.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                    <Typography variant="caption" color="info.main" sx={{ letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, borderBottom: 1, borderColor: 'info.main', pb: 0.25 }}>
+                      Visit {caseItem.link.replace('https://', '')} →
                     </Typography>
-                  </Link>
-                  {caseItem.link && (
-                    <a href={caseItem.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                      <Typography variant="caption" sx={{ color: '#6DB87E', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, borderBottom: '1px solid rgba(109,184,126,0.4)', pb: 0.25 }}>
-                        Visit {caseItem.link.replace('https://', '')} →
-                      </Typography>
-                    </a>
-                  )}
-                </Box>
-              </Grid>
-            </Grid>
-          </MotionBox>
+                  </a>
+                )}
+              </StaggerItem>
+            </Stagger>
+          </Box>
         ))}
       </Container>
-    </Box>
+    </ThemeSection>
   );
 }
