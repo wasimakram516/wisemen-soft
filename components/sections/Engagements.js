@@ -1,108 +1,110 @@
 'use client';
 
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Box, Button, Container, Typography, useTheme } from '@mui/material';
+import { ArrowRight as ArrowForwardIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
-import { Reveal, Stagger, StaggerItem } from '@/components/motion/Reveal';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
+import ThemeSection from '@/components/ThemeSection';
 
 const engagements = [
   {
     eyebrow: 'For founders',
     title: 'MVPs with room for version two.',
     body: 'Clarify the first real use case, ship the core, keep the architecture clean.',
-    accent: '#D4A843',
   },
   {
     eyebrow: 'For operators',
     title: 'Internal tools for daily work.',
     body: 'Replace spreadsheet drift with dashboards, portals, reports, and approval flows.',
-    accent: '#5CB1AA',
   },
   {
     eyebrow: 'For schools and teams',
     title: 'ERP and HR without enterprise bloat.',
     body: 'Attendance, fees, payroll, tasks, documents, inventory, and reporting in focused systems.',
-    accent: '#C16E5A',
   },
 ];
 
-export default function Engagements() {
+function EngagementCard({ item, index }) {
+  const theme = useTheme();
+
   return (
-    <Box
-      component="section"
+    <Stagger
+      delay={index * 0.08}
+      stagger={0.08}
       sx={{
-        py: { xs: 12, md: 18 },
-        background: '#0E0D0B',
-        borderTop: '1px solid rgba(92,177,170,0.16)',
+        scrollSnapAlign: 'start',
+        flex: '0 0 auto',
+        width: { xs: '82vw', sm: 360, md: 400 },
+        p: { xs: 4, md: 5 },
+        borderRadius: `${theme.shape.borderRadius}px`,
+        border: 1,
+        borderColor: 'divider',
+        borderTop: 3,
+        borderTopColor: 'primary.main',
+        bgcolor: 'background.paper',
+        transition: 'transform 0.24s ease, border-color 0.24s ease',
+        '&:hover': { transform: 'translateY(-4px)', borderColor: 'text.primary' },
       }}
     >
+      <StaggerItem>
+        <Typography variant="caption" color="primary.main" sx={{ letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, display: 'block', mb: 3 }}>
+          {item.eyebrow}
+        </Typography>
+      </StaggerItem>
+      <StaggerItem>
+        <Typography variant="h3" color="text.primary" sx={{ mb: 2 }}>
+          {item.title}
+        </Typography>
+      </StaggerItem>
+      <StaggerItem>
+        <Typography variant="body2" color="text.secondary">
+          {item.body}
+        </Typography>
+      </StaggerItem>
+    </Stagger>
+  );
+}
+
+export default function Engagements() {
+  return (
+    <ThemeSection mode="light" sx={{ py: { xs: 10, md: 14 } }}>
       <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 7, md: 10 }}>
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Reveal sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
-              <Typography
-                variant="caption"
-                sx={{ color: '#5CB1AA', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', mb: 3 }}
-              >
-                Who We Help
-              </Typography>
-              <Typography
-                variant="h2"
-                sx={{ color: '#F0EDE6', fontSize: { xs: '2.1rem', md: '3.1rem' }, maxWidth: 420, mb: 4 }}
-              >
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 4, mb: { xs: 6, md: 9 } }}>
+          <Stagger stagger={0.1} sx={{ maxWidth: 460 }}>
+            <StaggerItem>
+              <Typography variant="h2" color="text.primary" sx={{ mb: 3 }}>
                 Built close to the problem.
               </Typography>
-              <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.8, maxWidth: 360, mb: 5 }}>
+            </StaggerItem>
+            <StaggerItem>
+              <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 380 }}>
                 Smaller teams move faster when they understand the work deeply and stay accountable after launch.
               </Typography>
-              <Link href="/contact">
-                <Button variant="outlined" endIcon={<ArrowForwardIcon />}>
-                  Discuss your project
-                </Button>
-              </Link>
-            </Reveal>
-          </Grid>
+            </StaggerItem>
+          </Stagger>
+          <Link href="/contact" style={{ flexShrink: 0 }}>
+            <Button variant="outlined" color="inherit" endIcon={<ArrowForwardIcon size="1em" weight="bold" />} sx={{ borderColor: 'divider', color: 'text.primary', '&:hover': { borderColor: 'text.primary' } }}>
+              Start a Project
+            </Button>
+          </Link>
+        </Box>
 
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Stagger>
-            {engagements.map((item, index) => (
-              <StaggerItem
-                key={item.title}
-                sx={{
-                  py: { xs: 4.5, md: 5.5 },
-                  borderTop: index === 0 ? '1px solid rgba(212,168,67,0.08)' : 'none',
-                  borderBottom: '1px solid rgba(212,168,67,0.08)',
-                  transition: 'transform 0.24s ease, border-color 0.24s ease',
-                  '&:hover': {
-                    transform: 'translateX(6px)',
-                    borderBottomColor: `${item.accent}55`,
-                  },
-                }}
-              >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                  <Box sx={{ width: 8, height: 8, background: item.accent, borderRadius: 1 }} />
-                  <Typography
-                    variant="caption"
-                    sx={{ color: item.accent, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700 }}
-                  >
-                    {item.eyebrow}
-                  </Typography>
-                </Box>
-                <Typography
-                  variant="h3"
-                  sx={{ color: '#F0EDE6', fontSize: { xs: '1.4rem', md: '1.85rem' }, lineHeight: 1.18, mb: 2 }}
-                >
-                  {item.title}
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.7, maxWidth: 560 }}>
-                  {item.body}
-                </Typography>
-              </StaggerItem>
-            ))}
-            </Stagger>
-          </Grid>
-        </Grid>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: { xs: 2.5, md: 3 },
+            overflowX: 'auto',
+            scrollSnapType: 'x mandatory',
+            pb: 2,
+            '&::-webkit-scrollbar': { height: 4 },
+            '&::-webkit-scrollbar-thumb': { bgcolor: 'divider', borderRadius: 4 },
+          }}
+        >
+          {engagements.map((item, index) => (
+            <EngagementCard key={item.title} item={item} index={index} />
+          ))}
+        </Box>
       </Container>
-    </Box>
+    </ThemeSection>
   );
 }
