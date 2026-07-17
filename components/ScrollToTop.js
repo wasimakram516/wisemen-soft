@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Box, IconButton } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Box, IconButton, useTheme, alpha } from '@mui/material';
+import { CaretUp as KeyboardArrowUpIcon } from '@phosphor-icons/react';
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -32,18 +33,19 @@ export default function ScrollToTop() {
         sx={{
           width: 44,
           height: 44,
-          background: 'rgba(212,168,67,0.1)',
-          border: '1px solid rgba(212,168,67,0.25)',
-          color: '#D4A843',
+          bgcolor: alpha(theme.palette.primary.main, 0.1),
+          border: 1,
+          borderColor: alpha(theme.palette.primary.main, 0.25),
+          color: 'primary.main',
           backdropFilter: 'blur(8px)',
           '&:hover': {
-            background: 'rgba(212,168,67,0.2)',
-            borderColor: '#D4A843',
+            bgcolor: alpha(theme.palette.primary.main, 0.2),
+            borderColor: 'primary.main',
           },
           transition: 'all 0.2s',
         }}
       >
-        <KeyboardArrowUpIcon />
+        <KeyboardArrowUpIcon size={22} weight="bold" />
       </IconButton>
     </Box>
   );
