@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 const stars = [
   { cx: 6,  cy: 18, r: 2.5, delay: 0.1 },
@@ -14,8 +14,11 @@ const stars = [
 
 export default function SplashScreen() {
   const [show, setShow] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
+    if (sessionStorage.getItem('splash-seen')) return;
+    sessionStorage.setItem('splash-seen', '1');
     setShow(true);
     const t = setTimeout(() => setShow(false), 2200);
     return () => clearTimeout(t);
@@ -34,7 +37,7 @@ export default function SplashScreen() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#0A0A0A',
+            backgroundColor: theme.palette.background.default,
             zIndex: 100000,
           }}
         >
@@ -43,7 +46,7 @@ export default function SplashScreen() {
             <svg width={280} height={204} viewBox="0 0 44 32" fill="none" style={{ maxWidth: '60vw' }}>
               <motion.path
                 d="M 6 18 L 14 26 L 22 14 L 30 26 L 38 6"
-                stroke="#D4A843"
+                stroke={theme.palette.primary.main}
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -55,7 +58,7 @@ export default function SplashScreen() {
                 <motion.circle
                   key={i}
                   cx={s.cx} cy={s.cy} r={s.r}
-                  fill="#F0EDE6"
+                  fill={theme.palette.text.primary}
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.3, delay: s.delay, type: 'spring', stiffness: 300 }}
@@ -70,16 +73,16 @@ export default function SplashScreen() {
               transition={{ duration: 0.5, delay: 0.8, ease: 'easeOut' }}
             >
               <Typography
+                color="text.primary"
                 sx={{
                   fontFamily: 'var(--font-display)',
                   fontWeight: 700,
                   fontSize: { xs: '2rem', md: '2.8rem' },
                   letterSpacing: 0,
-                  color: '#F0EDE6',
                   userSelect: 'none',
                 }}
               >
-                Wisemen<Box component="span" sx={{ color: '#D4A843' }}>Soft</Box>
+                Wisemen<Box component="span" sx={{ color: 'primary.main' }}>Soft</Box>
               </Typography>
             </motion.div>
           </Box>
