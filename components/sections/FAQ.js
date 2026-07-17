@@ -1,5 +1,9 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
-import { Reveal, Stagger, StaggerItem } from '@/components/motion/Reveal';
+'use client';
+
+import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
+import { CaretDown as ExpandMoreIcon } from '@phosphor-icons/react';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
+import ThemeSection from '@/components/ThemeSection';
 
 const faqs = [
   {
@@ -38,59 +42,65 @@ export const faqSchema = {
 };
 
 export default function FAQ() {
+  const theme = useTheme();
+
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 12, md: 18 },
-        background: '#0A0A0A',
-        borderTop: '1px solid rgba(212,168,67,0.08)',
-      }}
-    >
+    <ThemeSection mode="dark" sx={{ py: { xs: 10, md: 14 } }}>
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 6, md: 10 }}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <Reveal>
-            <Typography
-              variant="caption"
-              sx={{ color: '#C16E5A', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', mb: 3 }}
-            >
-              Common Questions
-            </Typography>
-            <Typography variant="h2" sx={{ color: '#F0EDE6', fontSize: { xs: '2rem', md: '2.8rem' }, maxWidth: 360 }}>
-              Straight answers before the first call.
-            </Typography>
-            </Reveal>
+            <Stagger stagger={0.1}>
+              <StaggerItem>
+                <Typography variant="caption" color="primary.main" sx={{ letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', mb: 3 }}>
+                  Common Questions
+                </Typography>
+              </StaggerItem>
+              <StaggerItem>
+                <Typography variant="h2" color="text.primary" sx={{ maxWidth: 360 }}>
+                  Straight answers before the first call.
+                </Typography>
+              </StaggerItem>
+            </Stagger>
           </Grid>
 
           <Grid size={{ xs: 12, md: 8 }}>
-            <Stagger>
-            {faqs.map((faq, index) => (
-              <StaggerItem
-                key={faq.question}
-                sx={{
-                  py: { xs: 4, md: 5 },
-                  borderTop: index === 0 ? '1px solid rgba(212,168,67,0.08)' : 'none',
-                  borderBottom: '1px solid rgba(212,168,67,0.08)',
-                  transition: 'border-color 0.22s ease, transform 0.22s ease',
-                  '&:hover': {
-                    borderBottomColor: 'rgba(212,168,67,0.22)',
-                    transform: 'translateX(4px)',
-                  },
-                }}
-              >
-                <Typography variant="h3" sx={{ color: '#F0EDE6', fontSize: { xs: '1.2rem', md: '1.4rem' }, mb: 1.5 }}>
-                  {faq.question}
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.9 }}>
-                  {faq.answer}
-                </Typography>
-              </StaggerItem>
-            ))}
+            <Stagger delay={0.1} stagger={0.07}>
+              {faqs.map((faq, index) => (
+                <StaggerItem
+                  key={faq.question}
+                  component="details"
+                  sx={{
+                    borderTop: index === 0 ? 1 : 0,
+                    borderBottom: 1,
+                    borderColor: 'divider',
+                    '& summary::-webkit-details-marker': { display: 'none' },
+                    '& .faq-icon': { transition: 'transform 0.25s ease' },
+                    '&[open] .faq-icon': { transform: 'rotate(180deg)' },
+                    '&[open] .faq-question': { color: 'primary.main' },
+                  }}
+                >
+                  <Box
+                    component="summary"
+                    sx={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 3,
+                      py: { xs: 3, md: 3.5 }, cursor: 'pointer', listStyle: 'none',
+                      '&:hover .faq-question': { color: 'primary.main' },
+                    }}
+                  >
+                    <Typography className="faq-question" color="text.primary" sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' }, fontWeight: 500, transition: 'color 0.2s' }}>
+                      {faq.question}
+                    </Typography>
+                    <ExpandMoreIcon className="faq-icon" size={20} weight="bold" color={theme.palette.primary.main} style={{ flexShrink: 0 }} />
+                  </Box>
+                  <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 640, pb: 4 }}>
+                    {faq.answer}
+                  </Typography>
+                </StaggerItem>
+              ))}
             </Stagger>
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </ThemeSection>
   );
 }
