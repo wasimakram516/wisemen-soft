@@ -1,4 +1,5 @@
 import { Inter, Montserrat } from 'next/font/google';
+import Script from 'next/script';
 import '@/styles/globals.css';
 import ThemeRegistry from '@/components/ThemeRegistry';
 import Navbar from '@/components/Navbar';
@@ -7,6 +8,7 @@ import ScrollProgress from '@/components/ScrollProgress';
 import ScrollToTop from '@/components/ScrollToTop';
 import SplashScreen from '@/components/SplashScreen';
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, createPageMetadata } from './seo';
+import { dark } from '@/styles/tokens';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -66,10 +68,11 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
         className={`${inter.variable} ${montserrat.variable}`}
-        style={{ overflowX: 'hidden', backgroundColor: '#0A0A0A' }}
+        style={{ overflowX: 'hidden', backgroundColor: dark.bg }}
       >
         <ThemeRegistry>
-          <script
+          <Script
+            id="organization-schema"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           />
