@@ -1,22 +1,27 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+import PageBanner from '@/components/PageBanner';
+import ThemeSection from '@/components/ThemeSection';
+import { Reveal } from '@/components/motion/Reveal';
+import { createPageMetadata } from '@/app/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Terms of Service — Wisemen Soft',
   description: 'Terms of Service for Wisemen Soft and its products including Nexus, PressMaster, and StaffSync.',
-};
+  path: '/terms-of-service',
+});
 
 export default function TermsOfServicePage() {
   return (
-    <Box sx={{ background: '#0A0A0A', minHeight: '100vh', pt: { xs: 18, md: 22 }, pb: { xs: 12, md: 16 } }}>
-      <Container maxWidth="md">
-        <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700, display: 'block', mb: 4 }}>
-          Legal
-        </Typography>
-        <Typography variant="h1" sx={{ fontSize: { xs: '2.2rem', md: '3rem' }, color: '#F0EDE6', fontWeight: 100, mb: 2 }}>
-          Terms of <Box component="span" sx={{ fontWeight: 800 }}>Service</Box>
-        </Typography>
-        <Typography variant="caption" sx={{ color: '#6B6560', display: 'block', mb: 8 }}>Last updated: May 2026</Typography>
+    <ThemeSection mode="light" as="div" sx={{ minHeight: '100vh' }}>
+      <PageBanner
+        eyebrow="Legal"
+        titleLight="Terms of"
+        titleBold="Service"
+      >
+        <Typography variant="caption" color="text.disabled" sx={{ display: 'block', mt: 2 }}>Last updated: May 2026</Typography>
+      </PageBanner>
 
+      <Container maxWidth="md" sx={{ py: { xs: 9, md: 12 } }}>
         {[
           {
             heading: 'Acceptance of Terms',
@@ -54,13 +59,13 @@ export default function TermsOfServicePage() {
             heading: 'Contact',
             body: 'For questions about these terms, contact us at wasimakram4245@gmail.com.',
           },
-        ].map(({ heading, body }) => (
-          <Box key={heading} sx={{ mb: 6 }}>
-            <Typography variant="h5" sx={{ color: '#F0EDE6', fontWeight: 700, mb: 2 }}>{heading}</Typography>
-            <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9 }}>{body}</Typography>
-          </Box>
+        ].map(({ heading, body }, index) => (
+          <Reveal key={heading} delay={Math.min(index, 4) * 0.06} amount={0.3} sx={{ mb: 6 }}>
+            <Typography variant="h5" color="text.primary" sx={{ fontWeight: 700, mb: 2 }}>{heading}</Typography>
+            <Typography variant="body1" color="text.secondary">{body}</Typography>
+          </Reveal>
         ))}
       </Container>
-    </Box>
+    </ThemeSection>
   );
 }
