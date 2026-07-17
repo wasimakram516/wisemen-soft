@@ -1,6 +1,7 @@
 'use client';
 
 import { Box, Typography } from '@mui/material';
+import ThemeSection from '@/components/ThemeSection';
 
 const items = [
   'Custom Software',
@@ -13,21 +14,22 @@ const items = [
   'Data & Reporting',
 ];
 
-const dot = (
-  <Box component="span" sx={{ display: 'inline-block', width: 4, height: 4, borderRadius: '50%', background: '#D4A843', mx: 4, verticalAlign: 'middle', flexShrink: 0 }} />
-);
-
 export default function Marquee() {
   const repeated = [...items, ...items];
 
+  const dot = (
+    <Box component="span" sx={{ display: 'inline-block', width: 4, height: 4, borderRadius: '50%', bgcolor: 'primary.main', mx: 4, verticalAlign: 'middle', flexShrink: 0 }} />
+  );
+
   return (
-    <Box
+    <ThemeSection
+      mode="dark"
+      as="div"
       sx={{
-        borderTop: '1px solid rgba(212,168,67,0.08)',
-        borderBottom: '1px solid rgba(212,168,67,0.08)',
+        borderTop: 1, borderBottom: 1, borderColor: 'divider',
         py: 2.5,
         overflow: 'hidden',
-        background: '#080808',
+        bgcolor: 'background.paper',
       }}
     >
       <Box className="marquee-track">
@@ -35,14 +37,8 @@ export default function Marquee() {
           <Box key={i} sx={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
             <Typography
               variant="caption"
-              sx={{
-                color: i % 2 === 0 ? '#6B6560' : '#4A4540',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                fontSize: '0.68rem',
-                whiteSpace: 'nowrap',
-                fontWeight: 600,
-              }}
+              color={i % 2 === 0 ? 'text.disabled' : 'text.secondary'}
+              sx={{ letterSpacing: '0.14em', textTransform: 'uppercase', fontSize: '0.68rem', whiteSpace: 'nowrap', fontWeight: 600 }}
             >
               {item}
             </Typography>
@@ -50,6 +46,6 @@ export default function Marquee() {
           </Box>
         ))}
       </Box>
-    </Box>
+    </ThemeSection>
   );
 }
