@@ -1,13 +1,13 @@
 'use client';
 
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { motion } from 'framer-motion';
+import { ArrowRight as ArrowForwardIcon } from '@phosphor-icons/react';
+import { ArrowSquareOut as OpenInNewIcon } from '@phosphor-icons/react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const MotionBox = motion.create(Box);
+import PageBanner from '@/components/PageBanner';
+import ThemeSection from '@/components/ThemeSection';
+import { Reveal, Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 const values = [
   {
@@ -34,75 +34,55 @@ const values = [
 
 export default function AboutClient() {
   return (
-    <Box sx={{ background: '#0A0A0A', minHeight: '100vh' }}>
-      <Box sx={{ pt: { xs: 18, md: 22 }, pb: { xs: 12, md: 16 }, borderBottom: '1px solid rgba(212,168,67,0.08)' }}>
-        <Container maxWidth="lg">
-          <MotionBox
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            sx={{ mb: 6 }}
-          >
-            
-            <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 700 }}>
-              About Wisemen Soft
-            </Typography>
-          </MotionBox>
+    <ThemeSection mode="light" as="div" sx={{ minHeight: '100vh' }}>
+      <PageBanner
+        eyebrow="About Wisemen Soft"
+        titleTop="Built around"
+        titleBottom="operational understanding."
+        description="Custom software matched to how work actually happens: ERPs, HR tools, dashboards, internal systems, print management, and web apps built for real teams, not generic templates."
+        maxWidth={640}
+      />
 
-          <MotionBox
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            sx={{ maxWidth: 820 }}
-          >
-            <Typography variant="h1" sx={{ fontSize: { xs: '2.35rem', md: '3.5rem', lg: '4.2rem' }, color: '#F0EDE6', lineHeight: 1.02, mb: 5 }}>
-              <Box component="span" sx={{ fontWeight: 100 }}>A software house built around </Box>
-              <Box component="span" sx={{ fontWeight: 800 }}>operational understanding.</Box>
-            </Typography>
-            <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, fontSize: '1.05rem', maxWidth: 640 }}>
-              Wisemen Soft exists for businesses that need custom software to match the way work actually happens:
-              ERPs, HR tools, dashboards, internal systems, print management, and web applications that support real
-              teams instead of forcing them into generic templates.
-            </Typography>
-          </MotionBox>
-        </Container>
-      </Box>
-
-      <Box sx={{ py: { xs: 12, md: 18 }, borderBottom: '1px solid rgba(212,168,67,0.08)' }}>
+      <Box sx={{ py: { xs: 10, md: 14 }, borderBottom: 1, borderColor: 'divider' }}>
         <Container maxWidth="lg">
           <Grid container spacing={{ xs: 8, md: 12 }} sx={{ alignItems: 'flex-start' }}>
             <Grid size={{ xs: 12, md: 4 }}>
-              <MotionBox initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    width: '100%',
-                    aspectRatio: '3/4',
-                    borderRadius: 2,
-                    overflow: 'hidden',
-                    border: '1px solid rgba(92,177,170,0.18)',
-                  }}
-                >
-                  <Image
-                    src="/images/wasim-akram.jpg"
-                    alt="Wasim Akram, Founder and CEO of Wisemen Soft"
-                    fill
-                    sizes="(max-width: 900px) 100vw, 50vw"
-                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                  />
-                </Box>
+              <Stagger stagger={0.1}>
+                <StaggerItem>
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      width: '100%',
+                      aspectRatio: '3/4',
+                      borderRadius: 1,
+                      overflow: 'hidden',
+                      border: 1,
+                      borderColor: 'divider',
+                    }}
+                  >
+                    <Image
+                      src="/images/wasim-akram.jpg"
+                      alt="Wasim Akram, Founder and CEO of Wisemen Soft"
+                      fill
+                      sizes="(max-width: 900px) 100vw, 50vw"
+                      style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                    />
+                  </Box>
+                </StaggerItem>
 
-                <Box sx={{ mt: 3 }}>
-                  <Typography variant="h6" sx={{ color: '#F0EDE6', fontWeight: 700, mb: 0.25 }}>
+                <StaggerItem sx={{ mt: 3 }}>
+                  <Typography variant="h6" color="text.primary" sx={{ fontWeight: 700, mb: 0.25 }}>
                     Wasim Akram
                   </Typography>
-                  <Typography variant="caption" sx={{ color: '#D4A843', display: 'block', mb: 2 }}>
+                  <Typography variant="caption" color="primary.main" sx={{ display: 'block', mb: 2 }}>
                     Founder and CEO, Wisemen Soft
                   </Typography>
+                </StaggerItem>
+                <StaggerItem>
                   <Button
                     variant="outlined"
                     size="small"
-                    endIcon={<OpenInNewIcon fontSize="small" />}
+                    endIcon={<OpenInNewIcon size={16} weight="bold" />}
                     href="https://www.wasimakram.org"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -110,104 +90,97 @@ export default function AboutClient() {
                   >
                     Founder Portfolio
                   </Button>
-                </Box>
-              </MotionBox>
+                </StaggerItem>
+              </Stagger>
             </Grid>
 
             <Grid size={{ xs: 12, md: 8 }}>
-              <MotionBox initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-                <Box sx={{ mb: 5 }}>
-                  
-                  <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
-                    Founder Led
-                  </Typography>
-                </Box>
-
-                <Typography variant="h3" sx={{ fontSize: { xs: '1.8rem', md: '2.45rem' }, color: '#F0EDE6', mb: 5, lineHeight: 1.15 }}>
-                  <Box component="span" sx={{ fontWeight: 100 }}>Led by a builder with </Box>
+              <Reveal direction="right" delay={0.1}>
+                <Typography variant="h3" color="text.primary" sx={{ mb: 5 }}>
+                  <Box component="span" sx={{ fontWeight: 500 }}>Led by a builder with </Box>
                   <Box component="span" sx={{ fontWeight: 800 }}>60+ production projects</Box>
-                  <Box component="span" sx={{ fontWeight: 100 }}> across Pakistan, the GCC region, and Europe.</Box>
+                  <Box component="span" sx={{ fontWeight: 500 }}> across Pakistan, the GCC region, and Europe.</Box>
                 </Typography>
+              </Reveal>
 
-                <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, mb: 4 }}>
+              <Reveal direction="right" delay={0.16}>
+                <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
                   Wasim founded Wisemen Soft after years of building production systems across education, HR, print
                   operations, real-time event platforms, and data-heavy applications. The studio keeps that builder-led
                   mindset close to every project.
                 </Typography>
+              </Reveal>
 
-                <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, mb: 4 }}>
+              <Reveal direction="right" delay={0.22}>
+                <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
                   He holds an MS in Computer Science with a research focus on Explainable AI, and brings the same
                   discipline to business software: understand the domain, model the system clearly, then build with
                   maintainability in mind.
                 </Typography>
+              </Reveal>
 
-                <Typography variant="body1" sx={{ color: '#A8A39D', lineHeight: 1.9, mb: 6 }}>
+              <Reveal direction="right" delay={0.28}>
+                <Typography variant="body1" color="text.secondary" sx={{ mb: 6 }}>
                   The working principle is simple: useful software starts before code. Discovery, process mapping, and
                   plain technical judgment are treated as core engineering work, not optional ceremony.
                 </Typography>
+              </Reveal>
 
+              <Reveal direction="right" delay={0.34}>
                 <Link href="/contact">
-                  <Button variant="contained" endIcon={<ArrowForwardIcon />}>
+                  <Button variant="contained" endIcon={<ArrowForwardIcon size="1em" weight="bold" />}>
                     Work With Us
                   </Button>
                 </Link>
-              </MotionBox>
+              </Reveal>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
-      <Box sx={{ py: { xs: 12, md: 18 } }}>
+      <Box sx={{ py: { xs: 10, md: 14 } }}>
         <Container maxWidth="lg">
-          <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} sx={{ mb: 10 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
-              
-              <Typography variant="caption" sx={{ color: '#D4A843', letterSpacing: '0.18em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
-                How We Operate
-              </Typography>
-            </Box>
-            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, color: '#F0EDE6', maxWidth: 560 }}>
+          <Reveal sx={{ mb: 10 }}>
+            <Typography variant="h2" color="text.primary" sx={{ maxWidth: 560 }}>
               Practical principles for serious software work.
             </Typography>
-          </MotionBox>
+          </Reveal>
 
           <Box>
             {values.map((value, index) => (
-              <MotionBox
+              <Stagger
                 key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                delay={index * 0.08}
+                stagger={0.08}
                 sx={{
                   display: 'grid',
-                  gridTemplateColumns: { xs: '1fr', md: '72px 1fr' },
+                  gridTemplateColumns: { xs: '1fr', md: '24px 1fr' },
                   gap: { xs: 2, md: 6 },
                   py: 5.5,
-                  borderBottom: index < values.length - 1 ? '1px solid rgba(212,168,67,0.06)' : 'none',
+                  borderBottom: index < values.length - 1 ? 1 : 0,
+                  borderColor: 'divider',
                   transition: 'transform 0.24s ease, border-color 0.24s ease',
-                  '&:hover': {
-                    transform: 'translateX(6px)',
-                    borderBottomColor: 'rgba(212,168,67,0.18)',
-                  },
+                  '&:hover': { transform: 'translateX(6px)', borderBottomColor: 'primary.main' },
                 }}
               >
-                <Typography sx={{ color: '#D4A843', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em' }}>
-                  {String(index + 1).padStart(2, '0')}
-                </Typography>
+                <Box sx={{ width: 8, height: 8, borderRadius: '2px', bgcolor: 'primary.main', mt: 1, display: { xs: 'none', md: 'block' } }} />
                 <Box>
-                  <Typography variant="h5" sx={{ color: '#F0EDE6', mb: 2, fontWeight: 700, fontSize: { xs: '1.15rem', md: '1.35rem' } }}>
-                    {value.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#A8A39D', lineHeight: 1.9, maxWidth: 640 }}>
-                    {value.description}
-                  </Typography>
+                  <StaggerItem>
+                    <Typography variant="h5" color="text.primary" sx={{ mb: 2, fontWeight: 700 }}>
+                      {value.title}
+                    </Typography>
+                  </StaggerItem>
+                  <StaggerItem>
+                    <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 640 }}>
+                      {value.description}
+                    </Typography>
+                  </StaggerItem>
                 </Box>
-              </MotionBox>
+              </Stagger>
             ))}
           </Box>
         </Container>
       </Box>
-    </Box>
+    </ThemeSection>
   );
 }
