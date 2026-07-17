@@ -16,15 +16,20 @@ export default async function Image() {
     (
       <div
         style={{
-          background: '#0A0A0A',
+          background: '#141D18',
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          gap: 28,
         }}
       >
-        <img src={logoBase64} width={300} height={300} style={{ objectFit: 'contain' }} />
+        <img src={logoBase64} width={220} height={220} style={{ objectFit: 'contain' }} />
+        <div style={{ display: 'flex', fontSize: 56, fontWeight: 700, color: '#F0F2EA' }}>
+          Wisemen<span style={{ color: '#54A87A' }}>Soft</span>
+        </div>
       </div>
     ),
     { ...size }
