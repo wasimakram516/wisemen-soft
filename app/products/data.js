@@ -5,7 +5,6 @@ export const products = [
     name: 'Nexus',
     type: 'Education ERP',
     status: 'Live',
-    statusColor: '#6DB87E',
     summary:
       'Nexus is an all-in-one Education ERP for schools, colleges, and universities. It replaces disconnected spreadsheets and manual registers with a single web platform covering academics, attendance, fees, examinations, staff payroll, and multi-campus management.',
     features: [
@@ -30,7 +29,6 @@ export const products = [
     name: 'PressMaster',
     type: 'Print Management System',
     status: 'Live — Desktop',
-    statusColor: '#6DB87E',
     summary:
       'PressMaster gives printing press operations a single workflow from order intake to final delivery. Orders, inventory, client accounts, invoices, and production status all live in one place — so nothing falls through the gaps.',
     features: [
@@ -53,7 +51,6 @@ export const products = [
     name: 'StaffSync',
     type: 'Employee Supervision',
     status: 'Live — Desktop',
-    statusColor: '#6DB87E',
     summary:
       'StaffSync gives companies structured HR and supervision without enterprise bloat. Attendance, leave management, task tracking, internal messaging, document sharing, and staff surveys — all in one practical desktop system built around how real teams work.',
     features: [
