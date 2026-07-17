@@ -1,14 +1,14 @@
-﻿<svg width="256" height="256" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="256" height="256" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Dark background -->
-  <rect width="44" height="44" rx="9" fill="#1C1C2E" />
+  <rect width="44" height="44" rx="9" fill="#141D18" />
 
-  <!-- W path (Amber) -->
-  <path d="M 6 24 L 14 32 L 22 20 L 30 32 L 38 12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- W path (Forest green accent) -->
+  <path d="M 6 24 L 14 32 L 22 20 L 30 32 L 38 12" stroke="#54A87A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Stars -->
-  <circle cx="6" cy="24" r="2.5" fill="#F0EDE6" />
-  <circle cx="14" cy="32" r="3" fill="#F0EDE6" />
-  <circle cx="22" cy="20" r="4" fill="#F0EDE6" />
-  <circle cx="30" cy="32" r="3" fill="#F0EDE6" />
-  <circle cx="38" cy="12" r="3.5" fill="#F0EDE6" />
+  <circle cx="6" cy="24" r="2.5" fill="#F0F2EA" />
+  <circle cx="14" cy="32" r="3" fill="#F0F2EA" />
+  <circle cx="22" cy="20" r="4" fill="#F0F2EA" />
+  <circle cx="30" cy="32" r="3" fill="#F0F2EA" />
+  <circle cx="38" cy="12" r="3.5" fill="#F0F2EA" />
 </svg>
