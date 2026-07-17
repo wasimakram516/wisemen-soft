@@ -1,86 +1,88 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
+import { dark, light, radii } from './tokens';
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#D4A843',
-      light: '#E8C47A',
-      dark: '#A8832E',
-    },
-    background: {
-      default: '#0A0A0A',
-      paper: '#111111',
-    },
-    text: {
-      primary: '#F0EDE6',
-      secondary: '#9A938C',
-    },
-    divider: 'rgba(212,168,67,0.1)',
-  },
-  typography: {
-    fontFamily: 'var(--font-inter), "Helvetica Neue", Arial, sans-serif',
-    h1: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 100, letterSpacing: 0, lineHeight: 1.0 },
-    h2: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 100, letterSpacing: 0, lineHeight: 1.1 },
-    h3: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 100, letterSpacing: 0, lineHeight: 1.15 },
-    h4: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 100, letterSpacing: 0 },
-    h5: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 100 },
-    h6: { fontFamily: 'var(--font-display), "Helvetica Neue", sans-serif', fontWeight: 100 },
-    body1: { lineHeight: 1.8 },
-    body2: { lineHeight: 1.75 },
-  },
-  shape: { borderRadius: 8 },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          fontWeight: 600,
-          letterSpacing: '0.01em',
-          borderRadius: 6,
-          padding: '11px 28px',
-          transition: 'transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease',
-          '&:hover': { transform: 'translateY(-2px)' },
-          '&:active': { transform: 'translateY(0)' },
-          '& .MuiButton-endIcon': {
-            transition: 'transform 0.22s ease',
-          },
-          '&:hover .MuiButton-endIcon': {
-            transform: 'translateX(4px)',
-          },
-        },
-        containedPrimary: {
-          background: '#D4A843',
-          color: '#0A0A0A',
-          '&:hover': { background: '#E8C47A', boxShadow: '0 12px 30px rgba(212,168,67,0.16)' },
-        },
-        outlinedPrimary: {
-          borderColor: 'rgba(212,168,67,0.35)',
-          color: '#D4A843',
-          '&:hover': {
-            borderColor: '#D4A843',
-            background: 'rgba(212,168,67,0.06)',
-          },
-        },
-        text: {
-          color: '#F0EDE6',
-          '&:hover': { background: 'rgba(240,237,230,0.05)' },
-        },
-      },
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: { borderRadius: 4, fontWeight: 500, fontSize: '0.72rem' },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: { borderColor: 'rgba(212,168,67,0.08)' },
-      },
-    },
-  },
-});
+const typography = {
+  fontFamily: 'var(--font-inter), "Helvetica Neue", Arial, sans-serif',
+  h1: { fontFamily: 'var(--font-display)', fontWeight: 500, letterSpacing: '-0.01em', lineHeight: 1.05, fontSize: 'clamp(2.75rem, 2rem + 4vw, 6.5rem)' },
+  h2: { fontFamily: 'var(--font-display)', fontWeight: 500, letterSpacing: '-0.01em', lineHeight: 1.12, fontSize: 'clamp(2rem, 1.4rem + 2.5vw, 3.25rem)' },
+  h3: { fontFamily: 'var(--font-display)', fontWeight: 500, letterSpacing: '-0.005em', lineHeight: 1.2, fontSize: 'clamp(1.35rem, 1.1rem + 1vw, 1.9rem)' },
+  h4: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(1.15rem, 1rem + 0.6vw, 1.5rem)' },
+  h5: { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.1rem' },
+  h6: { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1rem' },
+  body1: { lineHeight: 1.75, fontSize: '1.05rem' },
+  body2: { lineHeight: 1.7, fontSize: '0.92rem' },
+  caption: { fontSize: '0.78rem' },
+};
 
-export default theme;
+function buildTheme(mode, t) {
+  return createTheme({
+    palette: {
+      mode,
+      primary: { main: t.accent },
+      background: { default: t.bg, paper: t.bgAlt },
+      text: { primary: t.text, secondary: t.textMuted, disabled: t.textFaint },
+      divider: t.border,
+      info: { main: t.status },
+    },
+    typography,
+    shape: { borderRadius: radii.card },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: 'none',
+            fontWeight: 600,
+            letterSpacing: '0.01em',
+            borderRadius: radii.pill,
+            padding: '11px 28px',
+            boxShadow: 'none',
+            transition: 'transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, color 0.24s ease',
+            '&:hover': { transform: 'translateY(-2px)', boxShadow: 'none' },
+            '&:active': { transform: 'translateY(0)' },
+            '& .MuiButton-endIcon': { transition: 'transform 0.24s ease' },
+            '&:hover .MuiButton-endIcon': { transform: 'translateX(4px)' },
+          },
+          containedPrimary: {
+            background: t.accent,
+            color: t.bg,
+            '&:hover': { background: t.accent, filter: 'brightness(1.12)' },
+          },
+          outlinedPrimary: {
+            borderColor: `${t.accent}59`,
+            color: t.accent,
+            '&:hover': { borderColor: t.accent, background: `${t.accent}10` },
+          },
+          text: {
+            color: t.text,
+            '&:hover': { background: 'none' },
+          },
+        },
+      },
+      MuiDivider: {
+        styleOverrides: { root: { borderColor: t.border } },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: { borderRadius: radii.card, backgroundImage: 'none' },
+        },
+      },
+      MuiAppBar: {
+        styleOverrides: { root: { boxShadow: 'none', borderRadius: 0 } },
+      },
+      MuiContainer: {
+        styleOverrides: {
+          maxWidthLg: { maxWidth: '1400px !important' },
+          maxWidthMd: { maxWidth: '1000px !important' },
+        },
+      },
+    },
+  });
+}
+
+export const darkTheme = buildTheme('dark', dark);
+export const lightTheme = buildTheme('light', light);
+
+// Default export kept for anything importing the theme directly (e.g. ThemeRegistry).
+export default darkTheme;
