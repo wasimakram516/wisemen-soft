@@ -18,14 +18,14 @@ export default function TermsOfServicePage() {
         titleLight="Terms of"
         titleBold="Service"
       >
-        <Typography variant="caption" color="text.disabled" sx={{ display: 'block', mt: 2 }}>Last updated: May 2026</Typography>
+        <Typography variant="caption" color="text.disabled" sx={{ display: 'block', mt: 2 }}>Last updated: August 2026</Typography>
       </PageBanner>
 
       <Container maxWidth="md" sx={{ py: { xs: 9, md: 12 } }}>
         {[
           {
             heading: 'Acceptance of Terms',
-            body: 'By accessing or using any Wisemen Soft product or website, you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use our services.',
+            body: 'By accessing or using any product or website operated by Wisemen Soft (SMC-Private) Limited, a company incorporated in Sargodha, Punjab, Pakistan (CUIN: 0350777), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use our services.',
           },
           {
             heading: 'Use of Services',

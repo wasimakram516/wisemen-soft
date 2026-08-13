@@ -18,11 +18,15 @@ export default function PrivacyPolicyPage() {
         titleLight="Privacy"
         titleBold="Policy"
       >
-        <Typography variant="caption" color="text.disabled" sx={{ display: 'block', mt: 2 }}>Last updated: May 2026</Typography>
+        <Typography variant="caption" color="text.disabled" sx={{ display: 'block', mt: 2 }}>Last updated: August 2026</Typography>
       </PageBanner>
 
       <Container maxWidth="md" sx={{ py: { xs: 9, md: 12 } }}>
         {[
+          {
+            heading: 'Who We Are',
+            body: 'Wisemen Soft and its products (Nexus, PressMaster, StaffSync) are operated by Wisemen Soft (SMC-Private) Limited, a company incorporated in Sargodha, Punjab, Pakistan (CUIN: 0350777).',
+          },
           {
             heading: 'Information We Collect',
             body: 'Wisemen Soft and its products (Nexus, PressMaster, StaffSync) collect information you provide directly — such as name, email address, institution name, and usage data — when you use our services, contact us, or register for a demo.',
