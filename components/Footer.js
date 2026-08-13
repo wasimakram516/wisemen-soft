@@ -99,7 +99,7 @@ export default function Footer() {
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
           <Typography variant="caption" color="text.secondary">
-            © {new Date().getFullYear()} Wisemen Soft. All rights reserved.
+            © {new Date().getFullYear()} Wisemen Soft (SMC-Private) Limited. CUIN 0350777. All rights reserved.
           </Typography>
           <Typography variant="caption" color="text.secondary" sx={{ fontStyle: 'italic' }}>
             Discover. Develop. Deliver.
