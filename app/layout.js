@@ -31,19 +31,25 @@ const organizationSchema = {
   founder: {
     '@type': 'Person',
     name: 'Wasim Akram',
+    jobTitle: 'Founder & CEO',
     url: 'https://www.wasimakram.org',
+    sameAs: [
+      'https://www.wasimakram.org',
+      'https://github.com/wasimakram516',
+    ],
   },
   areaServed: ['Pakistan', 'GCC', 'Europe', 'Global'],
   description: DEFAULT_DESCRIPTION,
   knowsAbout: [
+    'Software consultancy',
+    'IT consultancy',
     'Custom software development',
     'ERP systems',
-    'School management software',
     'HR management software',
-    'Print management software',
     'Web application development',
   ],
   makesOffer: [
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Software consultancy' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom software development' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ERP software development' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web application development' } },
