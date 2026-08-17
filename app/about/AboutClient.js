@@ -39,7 +39,7 @@ export default function AboutClient() {
         eyebrow="About Wisemen Soft"
         titleTop="Built around"
         titleBottom="operational understanding."
-        description="Custom software matched to how work actually happens: ERPs, HR tools, dashboards, internal systems, print management, and web apps built for real teams, not generic templates."
+        description="Software consultancy and custom software matched to how work actually happens: ERPs, HR tools, dashboards, internal systems, and web apps built for real teams, not generic templates."
         maxWidth={640}
       />
 

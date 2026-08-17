@@ -5,9 +5,9 @@ import ThemeSection from '@/components/ThemeSection';
 
 const items = [
   'Custom Software',
-  'School ERP',
+  'IT Consultancy',
+  'Enterprise Systems',
   'HR Systems',
-  'Print Management',
   'Web Applications',
   'Desktop Software',
   'Business Automation',

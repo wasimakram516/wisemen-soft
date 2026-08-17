@@ -16,9 +16,16 @@ const services = [
   },
   {
     title: 'Business systems',
-    body: 'ERP, HR, print management, reporting, approvals, and operations software without template bloat.',
+    body: 'ERP, HR, reporting, approvals, and operations software without template bloat.',
     href: '/products',
     cta: 'View products',
+    span: 'small',
+  },
+  {
+    title: 'Consultancy',
+    body: 'Technical advisory, architecture reviews, and IT consultancy for teams who need direction, not just code.',
+    href: '/contact',
+    cta: 'Start a conversation',
     span: 'small',
   },
   {

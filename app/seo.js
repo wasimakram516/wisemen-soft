@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://www.wisemensoft.com';
 export const SITE_NAME = 'Wisemen Soft';
 export const DEFAULT_DESCRIPTION =
-  'Wisemen Soft is a Pakistan-based software house building custom web apps, ERP systems, HR software, print management tools, and scalable digital products for global teams.';
+  'Wisemen Soft is a Pakistan-based software consultancy and development studio building custom web apps, ERP systems, HR software, and scalable digital products for global teams.';
 
 export const defaultOpenGraphImage = {
   url: '/opengraph-image',
@@ -28,6 +28,8 @@ export function createPageMetadata({
     keywords: [
       'Wisemen Soft',
       'software house Pakistan',
+      'software consultancy',
+      'IT consultancy Pakistan',
       'custom software development',
       'web app development',
       'ERP development',
