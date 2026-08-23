@@ -34,6 +34,8 @@ const personSchema = {
   ],
   description:
     'Founder and CEO of Wisemen Soft. Builder of 60+ production software projects across Pakistan, the GCC region, and Europe, spanning education, HR, print operations, and real-time event platforms.',
+  disambiguatingDescription:
+    'Software engineer and founder of Wisemen Soft in Pakistan; not the Pakistani cricketer of the same name.',
 };
 
 export default function AboutPage() {

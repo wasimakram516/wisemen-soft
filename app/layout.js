@@ -37,6 +37,8 @@ const organizationSchema = {
       'https://www.wasimakram.org',
       'https://github.com/wasimakram516',
     ],
+    disambiguatingDescription:
+      'Software engineer and founder of Wisemen Soft in Pakistan; not the Pakistani cricketer of the same name.',
   },
   areaServed: ['Pakistan', 'GCC', 'Europe', 'Global'],
   description: DEFAULT_DESCRIPTION,
