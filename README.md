@@ -18,6 +18,8 @@ Official website for **Wisemen Soft**, a software studio based in Pakistan. We b
 
 **Nexus** — School ERP handling attendance, fees, exams, payroll, and reporting. Web version in development at nexus.wisemensoft.com.
 
+**QuicklySorted** — A growing set of free, everyday online tools (developer, date and time, text, image, and generator tools) that run in the browser with no signup. Live at quicklysorted.com. Its home page screenshot is `public/images/products/quicklysorted-screenshot.png`; retake it when the QuicklySorted home page changes noticeably.
+
 **PressMaster** — Print management system for order tracking, inventory, invoicing, and production workflow. Live on desktop.
 
 **StaffSync** — Employee supervision and HR tool covering check-in, leave, tasks, internal messaging, and surveys. Live on desktop, built for a European client.

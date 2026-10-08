@@ -15,7 +15,7 @@ export default function ProductsPage() {
         eyebrow="Products"
         titleTop="Business systems,"
         titleBottom="built around real workflows."
-        description="Shipped against real operational problems: school administration, print production, and employee supervision."
+        description="Shipped against real operational problems: school administration, print production, and employee supervision, plus a free set of everyday online tools."
         maxWidth={640}
       />
 
