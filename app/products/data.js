@@ -25,6 +25,30 @@ export const products = [
   },
   {
     index: '02',
+    slug: 'quicklysorted',
+    name: 'QuicklySorted',
+    type: 'Free Online Tools',
+    status: 'Live',
+    summary:
+      'QuicklySorted is a growing set of free, everyday online tools in one place. Format code, work out dates, count words, resize images, make QR codes, and more. There is no signup, and each tool tells you how it handles your data. The tools that exist today run entirely in your browser.',
+    features: [
+      'Developer tools: JSON formatter, JWT decoder, Base64 and URL encoding, UUID and hash generators',
+      'Date and time tools: age and date calculators, an Excel date converter, Unix timestamps, and hours worked',
+      'Text tools: word and character counters, a case converter, line sorting, and duplicate line removal',
+      'Image tools: compress and convert, resize and crop, and a favicon generator, all on your device',
+      'Generators: passwords and passphrases, QR codes, random numbers, dice, and team pickers',
+      'Search across every tool, with light and dark themes',
+      'No account needed, and every tool states how it handles your data',
+      'One reusable platform, so new tools and categories share the same design and standards',
+    ],
+    note: 'quicklysorted.com',
+    noteHref: 'https://www.quicklysorted.com',
+    stack: ['Next.js', 'React', 'TypeScript', 'Material UI', 'Vercel'],
+    seoDescription:
+      'QuicklySorted is a free collection of online tools by Wisemen Soft: developer, date and time, text, image, and generator tools that run in your browser with no signup.',
+  },
+  {
+    index: '03',
     slug: 'pressmaster',
     name: 'PressMaster',
     type: 'Print Management System',
@@ -46,7 +70,7 @@ export const products = [
       'PressMaster is a desktop print management system by Wisemen Soft. Covers order tracking, inventory, invoicing, and production workflow for printing press operations.',
   },
   {
-    index: '03',
+    index: '04',
     slug: 'staffsync',
     name: 'StaffSync',
     type: 'Employee Supervision',
