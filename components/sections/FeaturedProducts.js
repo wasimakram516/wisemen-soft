@@ -26,6 +26,14 @@ const work = [
     image: '/images/products/nexus-screenshot.png',
   },
   {
+    name: 'QuicklySorted',
+    type: 'Online Tools',
+    outcome: 'A growing set of free, everyday tools, from developer utilities to text, image, and QR code tools. They run in your browser, with no signup.',
+    tags: ['Web', 'Free tools', 'No signup'],
+    status: 'Live',
+    image: '/images/products/quicklysorted-screenshot.png',
+  },
+  {
     name: 'PressMaster',
     type: 'Print Management',
     outcome: 'Gave a printing press full visibility into orders, inventory, and billing, from intake to invoice in one workflow.',
